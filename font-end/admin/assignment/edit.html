@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+
+    <title>Admin | Assignment</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+    
+    <link rel="stylesheet" href="/admin/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/dashlab-icon/dashlab-icon.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/toastr-master/toastr.css">
+    <link rel="stylesheet" href="/admin/assets/css/multi-step-form.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="/admin/assets/css/uploadfile.css">
+    <link rel="stylesheet" href="/admin/assets/css/main.css">
+
+    <script src="/admin/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/admin/assets/vendor/js-init/init-toastr.js"></script>
+    <script src="/admin/assets/vendor/toastr-master/toastr.js"></script>
+    <script src="/admin/assets/js/header.js" type="module"></script>
+    <style>
+        .modal-content{
+            margin-top: 65px;
+        }
+
+        .modal-backdrop {
+            position: unset !important;
+        }
+
+        .modal {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .has-error, .help-block {
+            color: #a94442;
+            font-weight: 600;
+        }
+
+        .has-error {
+            border: 1px solid #a94442 !important;
+        }
+
+        .note-editor.fullscreen {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body class="left-sidebar-fixed">
+    <header id="header" class="app-header">
+    </header>
+
+    <div id="rightSidebar"></div>
+    <div id="footer"></div>
+
+    <div class="app-body">
+        <div id="leftSidebar" class="left-nav-wrap"></div>
+        <div class="content-wrapper">
+            <div class="container-fluid" id="abc">
+                <!-- Context -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <p style="font-size: 23px; font-weight: bold" class="mb-sm-0 font-size-18">Sửa bài tập</p>
+                
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="/admin/assignment">Coding question</a></li>
+                                    <li class="breadcrumb-item active">Creating coding question</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div style="background-color: #fff" class="card2">
+                            <div class="row">
+                                <div class="col-md-12 mx-0">
+                                    <form id="msform">
+                                        <div style="display: none" id="hidden_value">         
+                                        </div>
+                                        <!-- progressbar -->
+                                        <ul id="progressbar">
+                                            <li class="active" id="account"><strong>Problem details</strong></li>
+                                            <li id="personal"><strong>Test cases</strong></li>
+                                        </ul>
+                                        <!--problem details -->
+                                        <fieldset id="problem-details">
+                                            <div class="form-card">
+                                                <div style="margin-bottom: unset; float: right" class="form-group">
+                                                    <input name="isCertificateQuestion"
+                                                            style="width: unset; margin-bottom: unset; cursor: pointer"
+                                                            type="checkbox" value="true" class="iCheck-flat-green">
+                                                    <label class="control-label">Đánh dấu là câu hỏi cho giấy chứng nhận</label>
+                                                </div>
+                                                <p style="font-weight: 600; color:#2f3c4b;; margin-bottom: 2px">Tên bài tập: <span
+                                                        class="text-danger"></span></p>
+                                                <div style="margin-bottom: 25px">
+                                                    <input required class="form-validate" name="title" id="title"
+                                                            style="font-family: 'Montserrat'; margin-bottom: unset" type="text"
+                                                            placeholder="Tên bài tâp"/>
+                                                        <p id="error-title" style="color: #a94442; display: none;">Vui lòng nhập tên bài tập!</p>
+                                                </div>
+                                                <div style="margin-bottom: 25px" class="row">
+                                                    <div class="col">
+                                                        <p style="font-weight: 600; color:#2f3c4b;; margin-bottom: 2px">Thời gian
+                                                            giới hạn/s: <span class="text-warning">(Optional)</span></p>
+                                                        <input style="margin-bottom: unset" name="timeLimit" class="form-validate"
+                                                                placeholder="Thời gian giới hạn">
+                                                    </div>
+                                                    <div class="col">
+                                                        <p style="font-weight: 600; color:#2f3c4b; margin-bottom: 2px">Bộ nhớ
+                                                            giới hạn/KB: <span class="text-warning">(Optional)</span></p>
+                                                        <input style="margin-bottom: unset" name="memoryLimit" min="2048"
+                                                                class="form-validate" placeholder="Giới hạn bộ nhớ">
+                                                            <p id="error-timeLimit" style="color: #a94442; display: none;">Bộ nhớ tối thiểu là 2048!</p>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-bottom: 25px" class="row">
+                                                    <div class="col">
+                                                        <p style="font-weight: 600; color:#2f3c4b;; margin-bottom: 2px">
+                                                            Độ khó</p>
+                                                        <select style="height: 45px; cursor: pointer; font-size: 15px"
+                                                                class="form-control select2" name="level">
+                                                            <option value="1">Easy</option>
+                                                            <option value="2">Medium</option>
+                                                            <option value="3">Hard</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="card card-shadow mb-4">
+                                                            <div class="card-header border-0">
+                                                                <div class="custom-title-wrap bar-primary">
+                                                                    <div class="custom-title">Mô tả bài toán: <span
+                                                                            class="text-danger"></span></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="summernote">Sample Problem Description</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div id="mark-down-editor" style="margin-top: 25px; display: none" class="row">
+                                                    <div class="col">
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card card-shadow mb-4">
+                                                                        <div class="card-header border-0">
+                                                                            <div class="custom-title-wrap bar-info">
+                                                                                <div class="custom-title">Editor Solution</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <textarea placeholder="Paste Your Solution For This Assignment Here" id="demo1"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                            <button style="border-radius: 5px" type="button" class="action-button btn-danger btn-cancel">Huỷ bỏ</button>
+                                            <input style="border-radius: 5px" id="step-one" type="button" name="next"
+                                                    class="next action-button" value="Tiếp theo"/>
+                                        </fieldset>
+                                        <!-- tescases-->
+                                        <fieldset id="testcase">
+                                            <div class="form-card">
+                                                <h2 class="fs-title">Testcases</h2>
+                                                <p style="color: #2C3E50">Một test case bao gồm các giá trị đầu vào của chương trình và đầu ra
+                                                    Đầu vào sẽ được đưa vào STDIN của chương trình và đầu ra sẽ ở trong STDOUT.</p>
+                                                <a id="btn-up-file" href="#">Hoặc tải tệp lên</a>
+                                                <div id="field">
+                                                    <div id="field0" class="testcase-item">
+                                                        <div class="form-group row">
+                                                            <div class="col">
+                                                                <label>Tên testcase:<span class="text-danger"></span></label>
+                                                                <input style="margin-bottom: unset" id="TSName0"
+                                                                    class="form-validate" placeholder="Tên testcase...">
+                                                                <p id="name-error0" style="color: red; display: none;">Vui lòng nhập tên testcase!</p>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Điểm:<span class="text-danger"></span></label>
+                                                                <input style="margin-bottom: unset" id="TSScore0"
+                                                                    class="form-validate" placeholder="Điểm...">
+                                                                <p id="score-error0" style="color: red; display: none;">Vui lòng nhập một số hợp lệ!</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <div class="col">
+                                                                <label>Đầu vào:<span class="text-danger"></span></label>
+                                                                <textarea style="margin-bottom: unset; height: 140px"
+                                                                        id="TSInput0" class="form-validate"
+                                                                        placeholder="Đầu vào..."></textarea>
+                                                                <p id="input-error0" style="color: red; display: none;">Vui lòng nhập INPUT!</p>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label>Kết quả mong đợi:<span class="text-danger"></span></label>
+                                                                <textarea style="margin-bottom: unset; height: 140px"
+                                                                        id="TSOutput0" class="form-validate"
+                                                                        placeholder="Kết quả mong đợi"></textarea>
+                                                                <p id="output-error0" style="color: red; display: none;">Vui lòng nhập OUTPUT!</p>
+                                                            </div>
+                                                        </div>
+                                                        <div style="margin-bottom: unset" class="form-group">
+                                                            <input name="check[0]" style="width: unset; margin-bottom: unset; cursor: pointer"
+                                                                type="checkbox" checked value="true" class="iCheck-flat-green">
+                                                            <label class="control-label">Đánh dấu là testcase mẫu</label>
+                                                        </div>
+                                                    </div><!--end field-->
+                                                </div><!-- Add more-->
+                                                <div class="form-group row">
+                                                    <div style="padding: unset" class="col-md-2 col-md-offset-8">
+                                                        <button style="border-radius: 5px" id="add-more" type="button" class="action-button">Thêm</button>
+                                                    </div>
+                                                    <div style="padding: unset" class="col-md-4 col-md-offset-8">
+                                                        <button style="border-radius: 5px" id="remove-all-testcase" type="button" class="action-button btn-danger remove-me">Xoá tất cả</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button style="border-radius: 5px" type="button" class="action-button btn-danger btn-cancel">Huỷ bỏ</button>
+                                            <input style="border-radius: 5px" id="goback" type="button" name="previous"
+                                                    class="previous action-button-previous"
+                                                    value="Trở lại"/>
+                                            <input style="border-radius: 5px" id="save-testcase" type="button" name="next" class="next action-button"
+                                                    value="Lưu"/>
+                                        </fieldset>
+                                        <!-- up-file -->
+                                        <fieldset id="up-file">
+                                        <div class="container-upfile">
+                                            <div style="display: block; justify-items: left; margin-left: 50px;">
+                                                <h2 class="fs-title">Testcases</h2>
+                                                <p style="color: #2C3E50; margin-bottom: 0;">Một test case bao gồm các giá trị đầu vào của chương trình và đầu ra
+                                                    Đầu vào sẽ được đưa vào STDIN của chương trình và đầu ra sẽ ở trong STDOUT.</p>
+                                                <a id="btn-fill-testcase" href="#">Hoặc điền thủ công</a>
+                                            </div>
+                                            <!-- File Upload Section -->
+                                            <div class="upload-container" id="uploadContainer">
+                                                <h3>Upload Test Case File</h3>
+                                                <div class="content" id="dropZone">
+                                                    <input type="file" id="fileUpload" name="fileUpload" multiple accept=".inp, .out">
+                                                    <div class="upload-text" id="uploadText">Click here to upload file or Drag file here</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; text-align: left; margin-left: 100px; margin-bottom: 50px;">
+                                            <h3>Lưu ý</h3>
+                                            <ul>
+                                                <li>Chỉ chấp nhận file <b>.INP</b> và <b>.OUT</b></li>
+                                                <li>File <b>.INP</b> tương ứng với INPUT</li>
+                                                <li>File <b>.OUT</b> tương ứng với OUTPUT</li>
+                                                <li>Mỗi cặp <b>INPUT</b>, <b>OUTPUT</b> phải có cùng tên file với nhau (ví dụ <b>1.INP</b> và <b>1.OUT</b> )</li>
+                                            </ul>
+                                        </div>
+                                        <!-- Information Tables Section -->
+                                        <div class="container-upfile">
+                                            <!-- Table 1: INPUT TestCase Information -->
+                                            <div class="table-container">
+                                                <h3>Test Case Input</h3>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>File Name (Name)</th>
+                                                            <th>Input</th>
+                                                            <th>Edit</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="testCaseInputTable">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- Table 2: OUTPUT TestCase Information -->
+                                            <div class="table-container">
+                                                <h3>Test Case OutPut</h3>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>File Name</th>
+                                                            <th>Output</th>
+                                                            <th>Edit</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="testCaseOutPutTable">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="form-btn" style="display: none; text-align: start; margin: 0 75px;">
+                                            <input id="testcase-score" style="font-family: 'Montserrat'; width: 150px; height: 40px; border-radius: 10px;" type="text" placeholder="Tổng điểm">
+                                            <p>▶ Điểm từng testcase sẽ bằng tổng điểm/số lượng testcase (nếu kết quả là số thập phân thì sẽ lấy phần nguyên).</p>
+                                            <p>▶ Nếu không nhập điểm mặc định là 1.</p>
+                                            <div style="padding: unset" class="col-md-2">
+                                                <button id="remove-all-file" style="border-radius: 5px" type="button" class="btn-danger action-button">Xoá tất cả</button>
+                                            </div>
+                                        </div>
+                                        <input style="border-radius: 5px" type="button" name="previous"
+                                                class="previous action-button-previous"
+                                                value="Trở lại"/>
+                                        <input style="border-radius: 5px" type="button" name="save" class="next action-button"
+                                                value="Lưu"/>
+                                    </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Context -->
+            </div>
+        </div>
+    </div>
+    <script src="/admin/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/admin/assets/vendor/popper.min.js"></script>
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/admin/assets/vendor/summernote/summernote-bs4.min.js"></script>
+    <script src="/admin/assets/vendor/js-init/init-summernote.js"></script>
+    <script src="/admin/assets/js/assignment/assignment_edit.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0aa4b024-a4b2-4750-ac49-87e5a5e039f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codelab/controller/SubmitSessionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codelab/dto/request/SubmitSessionsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codelab/mapper/SubmitMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codelab/respository/SubmitRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codelab/service/SubmitSessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codelab/configuration/ApplicationInitConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codelab/configuration/ApplicationInitConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codelab/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codelab/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codelab/dto/request/TestCaseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codelab/dto/request/TestCaseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2oBtPpvOdM1MYnIroT4gmg15H4N" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Code-Lab.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Coder-Lab [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Coder-Lab [compile].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;working&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/1.HUTECH_UNIVERSITY/Base-project/backend/Coder-Lab/src/main/resources&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\1.HUTECH_UNIVERSITY\Base-project\backend\Coder-Lab\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.codelab.dto.response" />
+      <recent name="com.codelab.dto.request" />
+      <recent name="com.codelab.service" />
+      <recent name="com.codelab.entity" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Code-Lab" type="Application" factoryName="Application">
+      <envs>
+        <env name="DB_CONNECTION" value="jdbc:mysql://103.200.23.189:3306/thieubin_code_lab" />
+        <env name="DB_CONNECTION_LC" value="jdbc:mysql://127.0.0.1:3306/thieubin_code_lab" />
+        <env name="DB_PASSWORD" value="dacs@123#" />
+        <env name="DB_PASSWORD_LC" value="root" />
+        <env name="DB_USERNAME" value="thieubin_dacs" />
+        <env name="DB_USERNAME_LC" value="root" />
+        <env name="JWT_ORIGINS" value="http://binhanserveftp.com:8822,http://127.0.0.1:5500" />
+        <env name="MAIL_PASSWORD" value="Anthieu@04102k4" />
+        <env name="MAIL_USERNAME" value="gmathaythe@gmail.com" />
+        <env name="SIGNER_KEY" value="oHYAsPKMv5bBX1w9aR/Ti+vkv7fU8uXerpz6OULK8am1YVL/d9/1KbDK3KNwniDn" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.codelab.CoderLabApplication" />
+      <module name="Coder-Lab" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0aa4b024-a4b2-4750-ac49-87e5a5e039f3" name="Changes" comment="" />
+      <created>1730354776001</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730354776001</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.codelab.entity.User" memberName="id" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="SecurityContextHolder.getContext()" language="JAVA" custom="org.springframework.security.core.context.SecurityContextHolder" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

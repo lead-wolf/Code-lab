@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <title>Giải quyết vấn đề | Coder'sLab</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="/assets/css/backToTop.css">
+    <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/chatbot.css">
+    <link rel="stylesheet" href="/assets/css/loading.css">
+    <link rel="stylesheet" href="/assets/css/practice.css">
+    <link rel="stylesheet" href="/assets/css/elegantFont.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/lib/codemirror.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/3024-day.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/bespin.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/dracula.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/night.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/idea.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/toastr-master/toastr.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/oceanic-next.css">
+    <link rel="stylesheet" href="/assets/vendor/markdown/simplemde.min.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/toastr-master/toastr.css">
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="/assets/js/practice.js"></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+    <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/admin/assets/vendor/js-init/init-toastr.js"></script>
+    <script src="/admin/assets/vendor/toastr-master/toastr.js"></script>
+
+    <style>
+        th {
+            border-width: 1px;
+        }
+
+        td {
+            border-width: 1px;
+        }
+
+        .bx-icon {
+            font-size: 20px;
+            position: absolute;
+            line-height: 41px;
+            margin-left: 15px;
+        }
+
+        .CodeMirror {
+            border: 1px solid #eee;
+        }
+
+        .dd-selected-image,
+        .dd-option-image {
+            width: 30px;
+            max-height: 30px;
+        }
+
+        .dd-selected-text,
+        .dd-option-text {
+            line-height: 30px !important;
+            color: #000;
+        }
+
+        .dd-selected {
+            cursor: pointer;
+            padding: 4px !important;
+        }
+
+        #input,
+        #output {
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div id="header-sticky" class="header__area header__transparent header__padding-2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6"
+                        style="min-width: 100px !important;">
+                        <div class="header__left d-flex">
+                            <div class="logo">
+                                <a href="/"> <img src="/assets/img/logo/logo.png" alt="logo"> </a>
+                            </div>
+                            <div style="min-width: 100px;" class="header__category d-none d-lg-block">
+                                <nav>
+                                    <ul>
+                                        <li>
+                                            <a href="/client/online_compiler/"
+                                                class="cat-menu d-flex align-items-center">
+                                                <div class="cat-dot-icon d-inline-block">
+                                                    <svg viewBox="0 0 276.2 276.2">
+                                                        <g>
+                                                            <g>
+                                                                <path class="cat-dot"
+                                                                    d="M33.1,2.5C15.3,2.5,0.9,17,0.9,34.8s14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S51,2.5,33.1,2.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M137.7,2.5c-17.8,0-32.3,14.5-32.3,32.3s14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3S155.5,2.5,137.7,2.5    z" />
+                                                                <path class="cat-dot"
+                                                                    d="M243.9,67.1c17.8,0,32.3-14.5,32.3-32.3S261.7,2.5,243.9,2.5S211.6,17,211.6,34.8S226.1,67.1,243.9,67.1z" />
+                                                                <path class="cat-dot"
+                                                                    d="M32.3,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3S0,120.4,0,138.2S14.5,170.5,32.3,170.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M136.8,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3c-17.8,0-32.3,14.5-32.3,32.3    C104.5,156.1,119,170.5,136.8,170.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M243,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3s-32.3,14.5-32.3,32.3    C210.7,156.1,225.2,170.5,243,170.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M33,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S50.8,209.1,33,209.1z    " />
+                                                                <path class="cat-dot"
+                                                                    d="M137.6,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S155.4,209.1,137.6,209.1z" />
+                                                                <path class="cat-dot"
+                                                                    d="M243.8,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S261.6,209.1,243.8,209.1z" />
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                <span>Công Cụ</span>
+                                            </a>
+                                            <ul class="cat-submenu">
+                                                <li><a href="/client/online_compiler/">Trình Biên Dịch</a></li>
+                                                <li id="create-exp" style="display: none;"><a
+                                                        href="/teacher/contest">Tạo
+                                                        Cuộc Thi</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
+                        <div class="header__right d-flex justify-content-end align-items-center">
+                            <div class="main-menu main-menu-2">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="/">Trang chủ</a></li>
+                                        <li><a href="./client/problem/">Luyện Tập</a></li>
+                                        <li><a href="./client/certify">Chứng chỉ</a></li>
+                                        <li><a href="./client/rank">Xếp Hạng</a></li>
+                                        <li><a href="./client/apply">Tuyển Dụng</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="header__btn header__btn-2 ml-50 d-none d-sm-block" style="display: hidden;">
+                                <div id="header_btn">
+                                    <a href="/sign-up.html" class="e-btn">Đăng ký</a>
+                                    <a href="/sign-in.html" class="e-btn"
+                                        style="background-color: #e8e8e8;color: black">Đăng nhập</a>
+                                </div>
+                                <div class="dropdown" id="header_dropdown" style="display: hidden;">
+                                    <i style="font-size: 20px; position: absolute; line-height: 41px; margin-left: 15px; color: #0e1133"
+                                        class="bx bxs-user"></i>
+                                    <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                                        style="color: #0e1133; font-weight: 500; position: relative; cursor: pointer">
+                                        <span id="header_username"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" style="padding: unset">
+                                        <li style="position: relative"><i class="bx bx-cog bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;"
+                                                class="dropdown-item" href="/user/settings"><span></span>Cài đặt</a>
+                                        </li>
+                                        <li style="position: relative"><i class="bx bx-user bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;"
+                                                class="dropdown-item" href="/user/my-profile">Hồ sơ</a></li>
+                                        <li style="position: relative"><i class="bx bx-lock-alt bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;"
+                                                class="dropdown-item" href="/user/changePassword">Thay đổi mật khẩu</a>
+                                        </li>
+                                        <li style="position: relative"><i class="bx bx-power-off bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;"
+                                                class="dropdown-item" href="/sign-in.html">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar__menu d-xl-none">
+                                <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header -->
+    <!-- back to top -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- back to top -->
+    <!-- sidebar area start -->
+    <div class="sidebar__area">
+        <div class="sidebar__wrapper">
+            <div class="sidebar__close">
+                <button class="sidebar__close-btn" id="sidebar__close-btn">
+                    <span><i class="fal fa-times"></i></span>
+                    <span>close</span>
+                </button>
+            </div>
+            <div class="sidebar__content">
+                <div class="logo mb-40">
+                    <a href="index.html">
+                        <img src="/assets/img/logo/logo.png" alt="logo">
+                    </a>
+                </div>
+                <div class="mobile-menu fix">
+                </div>
+
+                <div class="sidebar__search p-relative mt-40 ">
+                    <form action="#">
+                        <input type="text" placeholder="Search...">
+                        <button type="submit"><i class="fad fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="sidebar__cart mt-30">
+                    <a href="#">
+                        <div class="header__cart-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle class="st0" cx="9" cy="21" r="1" />
+                                <circle class="st0" cx="20" cy="21" r="1" />
+                                <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6" />
+                            </svg>
+                        </div>
+                        <span class="cart-item">2</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- sidebar area end -->
+    <div class="body-overlay"></div>
+    <!-- sidebar area end -->
+
+    <!-- ChatBox-->
+    <button class="chatbot-toggler">
+        <span class="material-symbols-rounded">mode_comment</span>
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+        <header>
+            <h2 style="font-size: 20px; color: #fff">Trợ Lý Ảo</h2>
+            <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <p>Xin chào 👋<br>Tôi là trợ lý AI sẽ hỗ trợ cho bạn?</p>
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea placeholder="Nhập câu hỏi..." spellcheck="false" required></textarea>
+            <span id="send-btn" class="material-symbols-rounded">gửi</span>
+        </div>
+    </div>
+    <!-- ChatBox-->
+
+    <div>
+        <!-- page title area start -->
+        <section class="page__title-area pt-120 pb-90">
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <div class="course__wrapper">
+                            <div class="page__title-content mb-25">
+                                <span id="language-option" class="page__title-pre"></span>
+                                <h5 class="page__title-3" id="challenge-title"></h5>
+                            </div>   
+
+                            <div class="course__meta-2 d-sm-flex mb-30 mt-20">
+                                <div class="course__teacher-3 d-flex align-items-center mr-70 mb-30">
+                                    <div id="teacher-thumb" class="course__teacher-thumb-3 mr-15">
+                                        <img id="teacher-avatar" alt="">
+                                    </div> 
+
+                                    <div class="course__teacher-info-3">
+                                        <h5>Tạo bởi</h5>
+                                        <p><a href="#" id="lecturer-name"></a></p>
+                                    </div>  
+
+                                    <div style="margin-left: 40px" class="course__teacher-info-3" id="level-div">
+                                        <h5>Độ khó</h5>
+                                        <p id="level-name"></p>
+                                    </div>
+                                    
+                                    <div style="margin-left: 40px" class="course__teacher-info-3" id="submissions-div">
+                                        <h5>Đã nộp</h5>
+                                        <p id="submissions-count"></p>
+                                    </div>
+                                    
+                                    <div style="margin-left: 40px" class="course__teacher-info-3" id="memory-div">
+                                        <h5>Bộ nhớ:</h5>
+                                        <p id="memory-limit"></p>
+                                    </div>
+                                    
+                                    <div style="margin-left: 40px" class="course__teacher-info-3" id="time-div">
+                                        <h5>Thời gian</h5>
+                                        <p id="time-limit"></p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="course__tab-2 mb-45">
+                                <ul class="nav nav-tabs" id="courseTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                            data-bs-target="#description" type="button" role="tab"
+                                            aria-controls="description" aria-selected="true"><i
+                                                class="icon_ribbon_alt"></i>
+                                            <span>Mô tả</span></button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link " id="submission-tab" data-bs-toggle="tab"
+                                            data-bs-target="#submission" type="button" role="tab"
+                                            aria-controls="submission" aria-selected="false"><i
+                                                class="icon_book_alt"></i> <span>Đã nộp</span></button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="discussion-tab" data-bs-toggle="tab"
+                                            data-bs-target="#discussion" type="button" role="tab"
+                                            aria-controls="discussion" aria-selected="false"><i
+                                                class="icon_star_alt"></i> <span>Thảo luận</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation" id="solution-list-item">
+                                        <button class="nav-link" id="solution-tab" data-bs-toggle="tab" data-bs-target="#solution" type="button" role="tab"
+                                            aria-controls="solution" aria-selected="false">
+                                            <i class="fal fa-check"></i>
+                                            <span>Đã mở khoá đáp án</span>
+                                        </button>
+                                        <button class="nav-link" value="locked" id="solution-tab-locked" data-bs-toggle="tab" data-bs-target="#solution"
+                                            type="button" role="tab" aria-controls="solution" aria-selected="false">
+                                            <i class="fal fa-question-circle"></i>
+                                            <span>Gợi ý</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="course__tab-content mb-95">
+                                <div class="tab-content" id="courseTabContent">
+                                    <div class="tab-pane fade show active" id="description" role="tabpanel"
+                                        aria-labelledby="description-tab">
+                                        <input type="hidden" id="testCases" data-test-cases="${test_cases_json}">
+                                        <input type="hidden" id="allTestCase" data-test-cases="${all_test_cases_json}">
+                                        <input type="hidden" id="assignment_id" value="${challenge.id}"
+                                            data-assignment_id="${challenge.id}">
+                                        <input type="hidden" id="assignment_time_limit" value="${challenge.timeLimit}">
+                                        <input type="hidden" id="assignment_memory_limit"
+                                            value="${challenge.memoryLimit}">
+
+                                        <div class="course__description">
+                                            <h3 style="font-size: 23px">Mô tả:</h3>
+                                            <p utext="${challenge.description}"></p>
+                                        </div>
+                                        <div class="col">
+                                            <div style="background-color: #f3f7f7"
+                                                class="d-flex justify-content-between mb-2 rounded p-2">
+                                                <div>
+                                                    <label class="visually-hidden"
+                                                        for="${'inlineFormSelectPref'}">Preference</label>
+                                                    <select if="${challenge.getLanguage_option()}"
+                                                        style="cursor: pointer;" class="form-select"
+                                                        id="${'inlineFormSelectPref'}">
+                                                        <option selected
+                                                            text="${challenge.getLanguage_option().getName()}"
+                                                            value="${challenge.getLanguage_option().getValue()}">
+                                                        </option>
+                                                    </select>
+                                                    <select unless="${challenge.getLanguage_option()}"
+                                                        style="cursor: pointer;" class="form-select"
+                                                        id="${'inlineFormSelectPref'}">
+                                                        <option each="language :${languages}" text="${language.name}"
+                                                            value="${language.value}">
+                                                        </option>
+                                                    </select>
+
+                                                </div>
+                                                <div>
+                                                    <select style="cursor: pointer; wid 120%;" class="form-select"
+                                                        id="theme">
+                                                        <option selected value="Dark">Dracula</option>
+                                                        <option value="Light">Light</option>
+                                                        <option value="Night">Night</option>
+                                                        <option value="Idea">Idea</option>
+                                                        <option value="Ocenaic">Ocenaic</option>
+                                                    </select>
+                                                </div>
+                                                <button
+                                                    style="margin-left: 20px;cursor: pointer;background-color: #f3f7f7;color: black"
+                                                    type="button" id="run" class="btn btn-success">Run
+                                                    <i style="margin-left: 10px; font-size: 17px;"
+                                                        class="bx bx-play"></i>
+                                                </button>
+                                                <button style="cursor: pointer;background-color: #00751f" type="button"
+                                                    id="submit" class="btn btn-success">Submit<i
+                                                        style="margin-left: 10px; font-size: 17px;"
+                                                        class="bi bi-play-fill"></i></button>
+                                            </div>
+                                            <div style="border-color: #eee; border-style: solid; border-wid 5px;">
+                                                <textarea type="text" id="editor" class="form-control"
+                                                    aria-label="First name"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <section id="excuting" style="display: none"
+                                            class="events__area pt-115 pb-120 p-relative">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-xxl-4 offset-xxl-4">
+                                                        <div class="section__title-wrapper mb-60 text-center">
+                                                            <h2 class="section__title" id="loadingText">
+                                                                <span style="color: #002795"
+                                                                    class="yellow-bg yellow-bg-big"> đang thực
+                                                                    thi...</span>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <!-- events area start -->
+                                        <section id="result" style="display: none"
+                                            class="events__area pt-115 pb-120 p-relative">
+                                            <div class="events__shape">
+                                                <img class="events-1-shape" alt="">
+                                            </div>
+                                            <div class="container">
+                                                <div class="row" id="test-cases-container">
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <!-- events area end -->
+                                    </div>
+
+                                    <div class="tab-pane fade" id="submission" role="tabpanel"
+                                        aria-labelledby="submission-tab">
+                                        <div class="course__curriculum">
+                                            <block if="${submissions}">
+                                                <div class="accordion" each="submission, itrStat  : ${submissions}">
+                                                    <div class="accordion-item mb-50">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button collapsed flexa"
+                                                                type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="${'#submission-'+submission.id}"
+                                                                data-bs-target="#week-01-content" aria-expanded="true"
+                                                                aria-controls="week-01-content">
+                                                                <input type="hidden" value="${submission.id}">
+                                                                <span if="${submission.is_success}"
+                                                                    class="compiler-error-label text-success">[[${itrStat.index+1}]].Biên
+                                                                    dịch thành công!</span>
+                                                                <span unless="${submission.is_success}"
+                                                                    class="compiler-error-label text-danger">[[${itrStat.index+1}]].
+                                                                    Biên dịch thất bại</span>
+                                                                <span
+                                                                    class="compiler-error-label">[[${submission.total_score}]]/[[${challenge.max_score}]]</span>
+                                                                <span
+                                                                    class="compiler-error-label">[[${submission.language.name}]]</span>
+                                                                <span id="${'timeSpan-'+submission.id}"
+                                                                    class="compiler-error-label"></span>
+                                                                <script inline="javascript">
+                                                                    timeUpdate([[${ submission.id }]], [[${ submission.submittedAt }]]);
+                                                                </script>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="${'submission-'+submission.id}"
+                                                            class="accordion-collapse collapse"
+                                                            aria-labelledby="week-01"
+                                                            data-bs-parent="#course__accordion">
+                                                            <div class="accordion-body">
+                                                                <div
+                                                                    class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                                    <div class="course__curriculum-info"
+                                                                        style="wid 100%">
+                                                                        <svg class="document" viewBox="0 0 24 24">
+                                                                            <path class="st0"
+                                                                                d="M14,2H6C4.9,2,4,2.9,4,4v16c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V8L14,2z" />
+                                                                            <polyline class="st0"
+                                                                                points="14,2 14,8 20,8 " />
+                                                                            <line class="st0" x1="16" y1="13" x2="8"
+                                                                                y2="13" />
+                                                                            <line class="st0" x1="16" y1="17" x2="8"
+                                                                                y2="17" />
+                                                                            <polyline class="st0"
+                                                                                points="10,9 9,9 8,9 " />
+                                                                        </svg>
+                                                                        <h3 if="${submission.is_success}"
+                                                                            class="text-success"><span>Trạng
+                                                                                thái:</span>
+                                                                            Giải bài thành công.</h3>
+                                                                        <h3 unless="${submission.is_success}"
+                                                                            class="text-danger"><span>Trạng thái:</span>
+                                                                            Chưa hoàn thành bài tập.
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="course__curriculum-meta">
+                                                                        <span class="question"
+                                                                            text="${submission.language.name}"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div if="${unlocked}"
+                                                                    class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                                    <div class="course__curriculum-info"
+                                                                        style="wid 100%">
+                                                                        <i class="fal fa-unlock"></i>
+                                                                        <h3 class="ml-10">
+                                                                            <span>Mở khoá:</span> Bạn đã xem đáp án nên
+                                                                            điểm sẽ không được tính cho bài này
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                                    <div class="course__curriculum-info"
+                                                                        style="wid 100%">
+                                                                        <i class="fal fa-code"></i>
+                                                                        <h3 class="ml-10"><span>Mã nguồn đã nộp: </span>
+                                                                        </h3>
+                                                                        <pre class="line-numbers language-java">
+                                                                            <code class="language-java"
+                                                                                  id="${'src_submission-'+submission.id}">
+    
+                                                                            </code>
+                                                                        </pre>
+
+                                                                        <script inline="javascript">
+                                                                            decodeSubmission([[${ submission.source_code }]], [[${ submission.id }]]);
+                                                                        </script>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="course__curriculum-content d-sm-flex justify-content-between align-items-center">
+                                                                    <div class="course__curriculum-info"
+                                                                        style="wid 100%">
+                                                                        <i class="fal fa-database"></i>
+                                                                        <h3 class="ml-10"><span>Output Của Bạn:</span>
+                                                                        </h3>
+                                                                        <section
+                                                                            class="events__area pt-30 pb-35 p-relative">
+                                                                            <div class="container">
+                                                                                <div class="row">
+                                                                                    <div each="assessment :${submission.assessments}"
+                                                                                        class="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+                                                                                        <block
+                                                                                            if="${submission.is_success}">
+                                                                                            <div
+                                                                                                class="events__item mb-10 hover__active">
+                                                                                                <div
+                                                                                                    class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg">
+                                                                                                    <div
+                                                                                                        class="events__content">
+                                                                                                        <div
+                                                                                                            class="events__meta">
+                                                                                                            <span>[[${assessment.executionTime}]]s</span>
+                                                                                                            <span>[[${assessment.memoryUsed}]]KB</span>
+                                                                                                            <span>Succeed</span>
+                                                                                                        </div>
+                                                                                                        <h3 class="events__title"
+                                                                                                            style="color: #0f740d">
+                                                                                                            <a
+                                                                                                                class="price__features">
+                                                                                                                <i class="far fa-check"
+                                                                                                                    style="background: rgb(48 168 32 / 9%);border-radius: 50%;font-size: 25px;"></i>
+                                                                                                                [[${assessment.testCase.name}]]
+                                                                                                            </a>
+                                                                                                        </h3>
+                                                                                                    </div>
+                                                                                                    <div if="${assessment.testCase.markSampleTestCase}"
+                                                                                                        class="events__more">
+                                                                                                        <a class="link-btn"
+                                                                                                            id="'view-more-submission-button-'+${assessment.id}"
+                                                                                                            style="cursor: pointer">
+                                                                                                            Xem chi tiết
+                                                                                                            <i
+                                                                                                                class="far fa-arrow-right"></i>
+                                                                                                            <i
+                                                                                                                class="far fa-arrow-right"></i>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                    <div unless="${assessment.testCase.markSampleTestCase}"
+                                                                                                        class="events__more">
+                                                                                                        <a class="link-btn"
+                                                                                                            id="'view-more-submission-button-'+${assessment.id}"
+                                                                                                            style="cursor: pointer">
+                                                                                                            Hidden
+                                                                                                            TestCase
+                                                                                                            <i style="color: #69b35c;"
+                                                                                                                class="far fa-unlock"></i>
+                                                                                                            <i style="color: #e65972;"
+                                                                                                                class="far fa-lock"></i>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div id="'submission-details-'+${assessment.id}"
+                                                                                                style="display: none; margin-bottom: 20px;padding: 10px 60px 60px 60px; border-radius: 7px; background-color: white">
+                                                                                                <div
+                                                                                                    class="contact__info white-bg p-relative z-index-1">
+                                                                                                    <div
+                                                                                                        class="contact__info-inner white-bg">
+                                                                                                        <ul>
+                                                                                                            <li>
+                                                                                                                <div
+                                                                                                                    class="contact__info-item d-flex align-items-start mb-20">
+                                                                                                                    <div class="contact__info-text"
+                                                                                                                        style="wid 100%">
+                                                                                                                        <h4
+                                                                                                                            class="blue-grey">
+                                                                                                                            Compiler
+                                                                                                                            Message
+                                                                                                                        </h4>
+                                                                                                                        <pre class="pre-tags"
+                                                                                                                            style="font-weight: initial; text-align: center">Thành công</pre>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </li>
+                                                                                                            <li>
+                                                                                                                <div
+                                                                                                                    class="contact__info-item d-flex align-items-start mb-20">
+                                                                                                                    <div class="contact__info-text"
+                                                                                                                        style="wid 100%">
+                                                                                                                        <h4
+                                                                                                                            class="blue-grey">
+                                                                                                                            Input
+                                                                                                                        </h4>
+                                                                                                                        <pre
+                                                                                                                            class="pre-tags line-numbers language-markup">
+                                                                                                                      <code class="language-markup">
+                                                                                                                      [[${assessment.testCase.input}]]</code>
+                                                                                                                  </pre>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </li>
+                                                                                                            <li>
+                                                                                                                <div
+                                                                                                                    class="contact__info-item d-flex align-items-start mb-20">
+                                                                                                                    <div class="contact__info-text"
+                                                                                                                        style="wid 100%">
+                                                                                                                        <h4
+                                                                                                                            class="blue-grey">
+                                                                                                                            Output
+                                                                                                                        </h4>
+                                                                                                                        <pre
+                                                                                                                            class="pre-tags line-numbers language-markup">
+                                                                                                                      <code class="language-markup">
+                                                                                                                      [[${assessment.testCase.expectedOutput}]]</code>
+                                                                                                                  </pre>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </li>
+                                                                                                        </ul>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </block>
+                                                                                        <block
+                                                                                            unless="${submission.is_success}">
+                                                                                            <div
+                                                                                                class="events__item mb-10 hover__active">
+                                                                                                <div
+                                                                                                    class="events__item-inner d-sm-flex align-items-center justify-content-between white-bg">
+                                                                                                    <div
+                                                                                                        class="events__content">
+                                                                                                        <div
+                                                                                                            class="events__meta">
+                                                                                                            <span>[[${assessment.executionTime}]]s</span>
+                                                                                                            <span>[[${assessment.memoryUsed}]]KB</span>
+                                                                                                            <span>Failed</span>
+                                                                                                        </div>
+                                                                                                        <h3 class="events__title"
+                                                                                                            style="color: #e65972">
+                                                                                                            <a class="price__features"
+                                                                                                                style="color: #d12a47;">
+                                                                                                                <i class="far fa-warning"
+                                                                                                                    style="background: rgb(48 168 32 / 9%);
+                                border-radius: 50%;
+                                font-size: 25px;"></i> [[${assessment.testCase.name}]]
+                                                                                                            </a>
+                                                                                                        </h3>
+                                                                                                    </div>
+                                                                                                    <div if="${assessment.testCase.markSampleTestCase}"
+                                                                                                        class="events__more">
+                                                                                                        <a class="link-btn"
+                                                                                                            id="'view-more-submission-button-'+${assessment.id}"
+                                                                                                            style="color: #e65972; cursor: pointer">
+                                                                                                            Xem chi tiết
+                                                                                                            <i
+                                                                                                                class="far fa-arrow-right"></i>
+                                                                                                            <i
+                                                                                                                class="far fa-arrow-right"></i>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                    <div unless="${assessment.testCase.markSampleTestCase}"
+                                                                                                        class="events__more">
+                                                                                                        <a class="link-btn"
+                                                                                                            id="'view-more-submission-button-'+${assessment.id}"
+                                                                                                            style="color: #e65972; cursor: pointer">
+                                                                                                            Hidden
+                                                                                                            TestCase
+                                                                                                            <i style="color: #69b35c;"
+                                                                                                                class="far fa-unlock"></i>
+                                                                                                            <i style="color: #e65972;"
+                                                                                                                class="far fa-lock"></i>
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div id="'submission-details-'+${assessment.id}"
+                                                                                                style="display: none; margin-bottom: 20px;padding: 10px 60px 60px 60px; border-radius: 7px; background-color: white">
+                                                                                                <div
+                                                                                                    class="contact__info white-bg p-relative z-index-1">
+                                                                                                    <div
+                                                                                                        class="contact__info-inner white-bg">
+                                                                                                        <ul>
+                                                                                                            <li>
+                                                                                                                <div
+                                                                                                                    class="contact__info-item d-flex align-items-start mb-20">
+                                                                                                                    <div class="contact__info-text"
+                                                                                                                        style="wid 100%">
+                                                                                                                        <h4
+                                                                                                                            class="blue-grey">
+                                                                                                                            Trạng
+                                                                                                                            Thái
+                                                                                                                        </h4>
+                                                                                                                        <pre class="pre-tags"
+                                                                                                                            style="font-weight: initial; text-align: center">Thất Bại</pre>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </li>
+                                                                                                            <li>
+                                                                                                                <div
+                                                                                                                    class="contact__info-item d-flex align-items-start mb-20">
+                                                                                                                    <div class="contact__info-text"
+                                                                                                                        style="wid 100%">
+                                                                                                                        <h4
+                                                                                                                            class="blue-grey">
+                                                                                                                            Input
+                                                                                                                        </h4>
+                                                                                                                        <pre
+                                                                                                                            class="pre-tags line-numbers language-markup">
+                                                                                                                      <code class="language-markup">
+                                                                                                                      [[${assessment.testCase.input}]]</code>
+                                                                                                                  </pre>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </li>
+                                                                                                            <li>
+                                                                                                                <div
+                                                                                                                    class="contact__info-item d-flex align-items-start mb-20">
+                                                                                                                    <div class="contact__info-text"
+                                                                                                                        style="wid 100%">
+                                                                                                                        <h4
+                                                                                                                            class="blue-grey">
+                                                                                                                            Your
+                                                                                                                            Output
+                                                                                                                        </h4>
+                                                                                                                        <pre
+                                                                                                                            class="pre-tags line-numbers language-markup">
+                                                                                                                      <code class="language-markup">
+                                                                                                                      [[${assessment.my_output}]]</code>
+                                                                                                                  </pre>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </li>
+                                                                                                        </ul>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </block>
+
+                                                                                        <script inline="javascript">
+                                                                                            viewMoreEvent([[${ assessment.id }]]);
+                                                                                        </script>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </block>
+                                            <block unless="${submissions}">
+                                                <div class="accordion">
+                                                    <div class="accordion-item mb-50">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button collapsed" type="button">
+                                                                You have not made any submissions for
+                                                                [[${challenge.title}]]
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </block>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="discussion" role="tabpanel"
+                                        aria-labelledby="discussion-tab">
+                                        <div class="course__review">
+                                            <div class="course__comment mb-75">
+                                                <h3>[[${comments.size()}]] Comments</h3>
+                                                <ul id="comment_container" each="comment :${comments}">
+                                                    <li>
+                                                        <div class="course__comment-box ">
+                                                            <div class="course__comment-thumb float-start">
+                                                                <img if="${comment.user.avatarUrl != null}"
+                                                                    src="@{${challenge.lecturer.getImagesPath()}}"
+                                                                    alt="">
+                                                                <img if="${comment.user.avatarUrl == null}"
+                                                                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="course__comment-content">
+                                                                <div class="course__comment-wrapper ml-70 fix">
+                                                                    <div class="course__comment-info float-start">
+                                                                        <h4 text="${comment.user.fullName}"></h4>
+                                                                        <span id="${'commentSpan-'+comment.id}"></span>
+                                                                        <script inline="javascript">
+                                                                            timeUpdateCommentTime([[${ comment.id }]], [[${ comment.commented_at }]]);
+                                                                        </script>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="course__comment-text ml-70">
+                                                                    <block text="${comment.comment}">
+
+                                                                    </block>
+                                                                    <pre if="${comment.source_code}"
+                                                                        class="line-numbers language-java">
+                                                                            <code class="language-java"
+                                                                                  text="${comment.source_code}">
+    
+                                                                            </code>
+                                                                    </pre>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <h3>Thêm bình luận</h3>
+                                            <div class="course__form-inner">
+                                                <div class="row">
+                                                    <div class="col-xxl-12">
+                                                        <div class="course__form-input">
+                                                            <textarea id="comment"
+                                                                placeholder="Review Summary"></textarea>
+                                                            <button id="addSourceCodeBtn"
+                                                                onclick="toggleSourceCode(this)">
+                                                                Add Your Source Code
+                                                            </button>
+                                                            <span style="display: none;color: rgba(0, 0, 0, 0.99);"
+                                                                class="textarea-span" id="source_code_comment"
+                                                                role="textbox" contenteditable></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function toggleSourceCode(element) {
+                                                        var sourceCodeTextarea = document.getElementById('source_code_comment');
+                                                        sourceCodeTextarea.style.display = 'block';
+                                                        element.remove();
+                                                    }
+                                                </script>
+                                                <div class="row">
+                                                    <div class="col-xxl-12">
+                                                        <div style="float: right" class="course__form-btn mt-10 mb-55">
+                                                            <button onclick="commentPost()" class="e-btn">Đăng</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <script>
+                                                    function commentPost() {
+                                                        const assignment_idElement = document.getElementById('assignment_id');
+                                                        const commentValue = document.getElementById('comment').value;
+                                                        const source_code_comment = document.getElementById('source_code_comment').innerText;
+                                                        const assignment_id = assignment_idElement.getAttribute('data-assignment_id');
+
+                                                        if (commentValue === "") {
+                                                            alert("Vui lòng nhập bình luận trước khi gửi.");
+                                                            return;
+                                                        }
+                                                        $.ajax({
+                                                            url: '/api/submissions/comment',
+                                                            type: 'GET',
+                                                            data: {
+                                                                comment: commentValue,
+                                                                source_code_comment: source_code_comment,
+                                                                assignment_id: assignment_id
+                                                            },
+                                                            success: function (comment) {
+                                                                const container = document.querySelector('#comment_container');
+                                                                const commentNode = document.createElement('li');
+                                                                const timeFromNow = moment(comment.commented_at).fromNow();
+                                                                let src_url;
+                                                                if (comment.user.avatarUrl !== null) {
+                                                                    src_url = "/avt-images/" + comment.user.id + "/" + comment.user.avatarUrl;
+                                                                } else {
+                                                                    src_url = 'https://bootdey.com/img/Content/avatar/avatar1.png';
+                                                                }
+                                                                console.log("URL: " + src_url);
+                                                                commentNode.innerHTML = `
+    
+                                           <div class="course__comment-box ">
+                                              <div class="course__comment-thumb float-start">
+                                                    <img src="${src_url}" >
+                                              </div>
+                                              <div class="course__comment-content">
+                                                 <div class="course__comment-wrapper ml-70 fix">
+                                                    <div class="course__comment-info float-start">
+                                                       <h4>${comment.user.fullName}</h4>
+                                                       <span>${timeFromNow}</span>
+                                                    </div>
+                                                 </div>
+                                                 <div class="course__comment-text ml-70">
+                                                    <md-block>
+                                                    ${comment.comment}
+                                                    </md-block>
+                                                 </div>
+                                              </div>
+                                           </div>
+    
+                `;
+                                                                container.insertBefore(commentNode, container.firstChild);
+
+                                                                document.getElementById('comment').value = " ";
+                                                                const topComment = document.getElementById('review');
+                                                                topComment.scrollIntoView({ behavior: 'smooth' });
+
+
+                                                            },
+                                                            error: function (error) {
+                                                                console.log('Error:', error);
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div if="${challenge.solution != null}" class="tab-pane fade" id="solution"
+                                        role="tabpanel">
+                                        <div class="course__description">
+                                            <h3 style="font-size: 23px">Answer Key:</h3>
+                                            <p>
+                                            <p>
+                                                <md-block>[[${challenge.solution}]]</md-block>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button class="chatbot-toggler">
+            <span class="material-symbols-rounded">mode_comment</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="chatbot">
+            <header>
+                <h2 style="font-size: 20px; color: #fff">Code Helper</h2>
+                <span class="close-btn material-symbols-outlined">close</span>
+            </header>
+            <ul class="chatbox">
+                <li class="incoming">
+                    <p style=" white-space: break-spaces; padding: 15px;">Xin chào👋<br>Tôi ở đây để giúp bạn hoàn thành
+                        bài tập này tốt nhất.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/backToTop.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/js/purecounter.js"></script>
+    <script src="/assets/js/jquery.meanmenu.js"></script>
+
+    <script src="/assets/js/chatbot.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
+
+    <script src="/assets/codemirror-5.65.15/lib/codemirror.js"></script>
+    <script src="/assets/codemirror-5.65.15/mode/clike/clike.js"></script>
+    <script src="/assets/codemirror-5.65.15/addon/edit/closebrackets.js"></script>
+    <script src="/assets/codemirror-5.65.15/mode/python/python.js"></script>
+    <script src="/assets/compiler/ddslick.js"></script>
+    <script src="/assets/js/practice.js"></script>
+
+    <!-- <script>
+        const myApiKey = '6984bdd544msh3d3fdce8861538fp11c2f0jsnd28103cc1b98';
+        const chatbotToggler = document.querySelector(".chatbot-toggler");
+        const closeBtn = document.querySelector(".close-btn");
+        closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+        chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+        function addResponseGPT(result) {
+            console.log(result.answer);
+            const loading_gpt = document.querySelector(".loading_gpt");
+            loading_gpt.remove();
+
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("incoming");
+            let chatContent = `<p style="white-space: break-spaces;padding: 15px;">` + result.answer + `</p>`;
+            chatLi.innerHTML += chatContent;
+            const chatbox = document.querySelector(".chatbox");
+            chatbox.appendChild(chatLi);
+        }
+
+        async function explainCode(selectedCode) {
+            const prompt_text = "Hãy giải thích về cách hoạt động của đoạn mã nguồn sau đây:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function addComments(selectedCode) {
+            const prompt_text = "Hãy thêm vào đoạn mã sau đây với các comment để giải thích từng phần:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function findBugs(selectedCode) {
+            const prompt_text = "Hãy tìm những lỗi có thể xuất hiện trong đoạn code dưới đây:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function optimize(selectedCode) {
+            const prompt_text = "Hãy đưa ra những gợi ý để có thể cải thiện hiệu suất của đoạn mã nguồn sau đây:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+
+        // Tạo một menu ngữ cảnh tùy chỉnh với một tùy chọn "explain this code"
+        var contextMenu = "<div class='dropdown-menu dropdown-menu-sm' id='context-menu'>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='findBugs'>Tìm lỗi</a>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='explain'>Giải thích code</a>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='addComments'>Thêm chú thích</a>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='optimize'>Tối ưu code</a>" +
+            "</div>";
+        // Thêm menu ngữ cảnh vào trang web
+        $("body").append(contextMenu);
+
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "text/x-c++src",
+            theme: "dracula",
+            lineNumbers: true,
+            autoCloseBrackets: true,
+        });
+        $(".CodeMirror").on("contextmenu", function (e) {
+            // Lấy vị trí của con trỏ chuột
+            var top = e.pageY - 10;
+            var left = e.pageX - 90;
+            // Hiển thị menu ngữ cảnh tại vị trí đó
+            $("#context-menu").css({
+                display: "block",
+                top: top,
+                left: left
+            }).addClass("show");
+            // Ngăn chặn menu ngữ cảnh mặc định của trình duyệt
+            return false;
+        }).on("click", function () {
+            // Ẩn menu ngữ cảnh khi người dùng nhấp chuột trái
+            $("#context-menu").removeClass("show").hide();
+        });
+        function addLoadingGPT() {
+            chatbotToggler.click();
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("incoming");
+            chatLi.classList.add("loading_gpt");
+            let chatContent = '<p style="white-space: break-spaces;padding: 15px;">Đang phân tích code của bạn...</p> ';
+            chatLi.innerHTML += chatContent;
+            const chatbox = document.querySelector(".chatbox");
+            chatbox.appendChild(chatLi);
+        }
+        // Bắt sự kiện click trên tùy chọn "explain this code"
+        $("#explain").on("click", function () {
+            addLoadingGPT();
+
+            // Lấy văn bản được chọn trên trình soạn thảo
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+            explainCode(selectedText);
+        });
+        $("#findBugs").on("click", function () {
+            addLoadingGPT();
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+
+            findBugs(selectedText);
+        });
+        $("#addComments").on("click", function () {
+            addLoadingGPT();
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+            addComments(selectedText);
+        });
+        $("#optimize").on("click", function () {
+            addLoadingGPT();
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+            optimize(selectedText);
+        });
+        editor.setSize("initial", "");
+        var option;
+        var langague_name;
+        $("#inlineFormSelectPref").ddslick({
+            onSelected: function (selectedData) {
+                if (selectedData.selectedData.value === "text/x-c++src") {
+                    editor.setOption("mode", "text/x-c++src")
+                    editor.setValue("#include<iostream>\n\nint main() {\n  std::cout << \"Hello world!\";\n\n  return 0;\n}")
+                    option = 54;
+                }
+                if (selectedData.selectedData.value === "text/x-java") {
+                    editor.setOption("mode", "text/x-java")
+                    editor.setValue('import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static void main(String[] args) {\n      System.out.println(\"Hello world!\");\n    }\n}')
+                    option = 91;
+                }
+                if (selectedData.selectedData.value === "text/x-csharp") {
+                    editor.setOption("mode", "text/x-csharp");
+                    editor.setValue("using System;\n\nclass Program {\n   static void Main() {\n     Console.WriteLine(\"Hello world!\");\n   }\n}");
+                    option = 51;
+
+                }
+                if (selectedData.selectedData.value === "text/x-python") {
+                    editor.setOption("mode", "text/x-python")
+                    editor.setValue("print('Hello world!')")
+                    option = 71;
+                }
+                langague_name = selectedData.selectedData.value;
+
+            }
+        });
+    </script> -->
+
+
+    <script type="module" src="/assets/compiler/practice.js"></script> 
+</body>
+
+</html>

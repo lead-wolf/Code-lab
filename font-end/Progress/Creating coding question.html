@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://localhost:8585/admin/assignment/edit/3 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+
+    <!--favicon icon-->
+    <link rel="icon" type="image/png" href="http://localhost:8585/admin_assets/img/favicon.html">
+
+    
+    <title>Creating coding question</title>
+    <!--web fonts-->
+    <link href="./Creating coding question_files/css" rel="stylesheet">
+    <link href="./Creating coding question_files/css(1)" rel="stylesheet">
+    <!--bootstrap styles-->
+    <link href="./Creating coding question_files/bootstrap.min.css" rel="stylesheet">
+    <!--icon font-->
+    <link href="./Creating coding question_files/font-awesome.min.css" rel="stylesheet">
+    <link href="./Creating coding question_files/dashlab-icon.css" rel="stylesheet">
+    <link href="./Creating coding question_files/simple-line-icons.css" rel="stylesheet">
+    <link href="./Creating coding question_files/themify-icons.css" rel="stylesheet">
+    <link href="./Creating coding question_files/weather-icons.min.css" rel="stylesheet">
+    <!--jquery ui-->
+    <link href="./Creating coding question_files/jquery-ui.min.css" rel="stylesheet">
+    <!--iCheck-->
+    <link href="./Creating coding question_files/all.css" rel="stylesheet">
+    <!--toastr-->
+    <link href="./Creating coding question_files/toastr.css" rel="stylesheet">
+    <!--custom styles-->
+    <link href="./Creating coding question_files/main.css" rel="stylesheet">
+
+    <!--multiple select-->
+    <link href="./Creating coding question_files/multi-select.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="./Creating coding question_files/multi-step-form.css">
+    <link rel="stylesheet" href="./Creating coding question_files/all.min.css">
+    <!--summernote-->
+    <link href="./Creating coding question_files/summernote-bs4.css" rel="stylesheet">
+    <style>
+    .modal-backdrop {
+      position: unset !important;
+    }
+    .modal {
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .has-error, .help-block {
+      color: #a94442;
+      font-weight: 600;
+    }
+    .has-error{
+      border: 1px solid #a94442 !important;
+    }
+  </style>
+</head>
+
+<body class="left-sidebar-fixed">
+<!--header start-->
+<header class="app-header">
+    <div class="branding-wrap">
+        <!--left nav toggler start-->
+        <a class="nav-link mt-2 float-left js_left-nav-toggler pos-fixed" href="javaScript:;">
+            <i class=" ti-align-right"></i>
+        </a>
+        <!--left nav toggler end-->
+
+        <!--brand start-->
+        <div class="navbar-brand pos-fixed">
+            <a class="" href="http://localhost:8585/admin/assignment/edit/index.html">
+                <img src="./Creating coding question_files/logo.png" alt="CodeLab" srcset="/admin_assets/img/logo.jpg 2x">
+            </a>
+        </div>
+        <!--brand end-->
+    </div>
+
+    <!--header rightside links-->
+    <ul class="header-links hide-arrow navbar">
+        <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" id="userNav" href="http://localhost:8585/admin/assignment/edit/3#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="user-thumb">
+                    <img class="rounded-circle" src="./Creating coding question_files/avatar2.jpg" alt="">
+                </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userNav">
+                <div class="dropdown-item- px-3 py-2">
+                    <img class="rounded-circle mr-2" src="./Creating coding question_files/avatar2.jpg" width="35" alt="">
+                    <span class="text-muted">Administrator</span>
+                </div>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://localhost:8585/">Trang Chủ</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://localhost:8585/logout">Đăng Xuất</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link right_side_toggle">
+                <i class="icon-options-vertical"> </i>
+            </a>
+        </li>
+    </ul>
+    <!--/header rightside links-->
+</header>
+<!--search modal start-->
+<div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="text" class="form-control" placeholder="Search...">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--search modal start-->
+<!--header end-->
+
+<div class="app-body">
+    <!--left sidebar start-->
+    <div class="left-nav-wrap">
+        <div class="left-sidebar">
+            <nav class="sidebar-menu" tabindex="1" style="overflow: hidden; outline: none;">
+                <ul id="nav-accordion">
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin" class="active">
+                            <i class=" ti-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-title">
+                        <h5 class="text-uppercase">Quản Lý Dữ Liệu</h5>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin/user-management">
+                            <i class="fa fa-user"></i>
+                            <span>Quản Lý Người Dùng</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin/assignment">
+                            <i class=" icon-speech"></i>
+                            <span>Câu Hỏi Luyện Tập</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin/quiz">
+                            <i class="fa fa-question"></i>
+                            <span>Câu hỏi trắc nghiệm</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin/assignment-kit">
+                            <i class="fa fa-certificate"></i>
+                            <span>Chứng Chỉ</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin/apply">
+                            <i class="icon-folder"></i>
+                            <span>Tuyển Dụng</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin/assignments-bank">
+                            <i class="icon-docs"></i>
+                            <span>Ngân Hàng Đề Thi</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="http://localhost:8585/admin/contest">
+                            <i class="fa fa-user-circle-o"></i>
+                            <span>Tổ Chức Thi</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 6px; z-index: auto; background: transparent; cursor: default; position: absolute; top: 0px; left: 244px; height: 477.8px; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 2px; height: 0px; background-color: rgb(98, 107, 227); border: 2px solid rgb(61, 165, 244); background-clip: padding-box; border-radius: 0px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 6px; z-index: auto; background: transparent; top: 471.8px; left: 0px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 2px; width: 0px; background-color: rgb(98, 107, 227); border: 2px solid rgb(61, 165, 244); background-clip: padding-box; border-radius: 0px;"></div></div></div>
+    </div>
+    <!--left sidebar end-->
+
+    <!--main content wrapper-->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+  <!-- start page title -->
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+        <p style="font-size: 23px; font-weight: bold" class="mb-sm-0 font-size-18">Edit Coding Question</p>
+
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="http://localhost:8585/templates/admin/assignment">Coding question</a></li>
+            <li class="breadcrumb-item active">Edit coding question</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end page title -->
+  <div class="row">
+    <div class="col-12">
+      <div style="background-color: #fff" class="card2">
+        <div class="row">
+          <div class="col-md-12 mx-0">
+            <form id="msform" action="http://localhost:8585/admin/assignment/edit" method="post">
+              <!-- progressbar -->
+              <ul id="progressbar">
+                <li class="active" id="account"><strong>Problem details</strong></li>
+                <li id="personal"><strong>Test cases</strong></li></ul>
+              <!--problem details -->
+              <fieldset>
+                <div class="form-card">
+                  <input type="hidden" id="id" name="id" value="3">
+                  <p style="font-weight: 600; color:#2f3c4b;; margin-bottom: 2px">Question name: <span class="text-danger">*</span></p>
+                  <div style="margin-bottom: 25px">
+                    <input class="form-validate" name="title" id="title" style="font-family: &#39;Montserrat&#39;; margin-bottom: unset" type="text" value="a">
+                  </div>
+                  <div style="margin-bottom: 25px" class="row">
+                    <div class="col">
+                      <p style="font-weight: 600; color:#2f3c4b;; margin-bottom: 2px">Time limit: <span class="text-danger">*</span>(Second)</p>
+                      <input style="margin-bottom: unset" name="timeLimit" class="form-validate" id="timeLimit" value="0">
+                    </div>
+                    <div class="col">
+                      <p style="font-weight: 600; color:#2f3c4b;; margin-bottom: 2px">Memory limit: <span class="text-danger">*</span>(MB)</p>
+                      <input style="margin-bottom: unset" name="memoryLimit" class="form-validate" id="memoryLimit" value="0">
+                    </div>
+                  </div>
+                  <div style="margin-bottom: 25px" class="row">
+                    <div class="col">
+                      <p style="font-weight: 600; color:#2f3c4b;; margin-bottom: 2px">Difficulty</p>
+                      <select style="height: 45px; cursor: pointer; font-size: 15px" class="form-control select2" name="level">
+                        <option value="1" selected="selected">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-12">
+                      <div class="card card-shadow mb-4">
+                        <div class="card-header border-0">
+                          <div class="custom-title-wrap bar-primary">
+                            <div class="custom-title">Problem Description: <span class="text-danger">*</span></div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div id="summernote" style="display: none;"><span style="font-weight: bold;">Sample </span><span style="color: rgb(255, 0, 0);">Problem </span><span style="background-color: rgb(255, 255, 0);">Description</span></div><div class="note-editor note-frame card"><div class="note-dropzone">  <div class="note-dropzone-message"></div></div><div class="note-toolbar card-header"><div class="note-btn-group btn-group note-style"><div class="note-btn-group btn-group"><button type="button" class="note-btn btn btn-light btn-sm dropdown-toggle" tabindex="-1" data-toggle="dropdown" title="" data-original-title="Style"><i class="note-icon-magic"></i></button><div class="dropdown-menu dropdown-style"><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="p"><p>Normal</p></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="blockquote"><blockquote>Quote</blockquote></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="pre"><pre>Code</pre></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="h1"><h1>Header 1</h1></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="h2"><h2>Header 2</h2></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="h3"><h3>Header 3</h3></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="h4"><h4>Header 4</h4></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="h5"><h5>Header 5</h5></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="h6"><h6>Header 6</h6></a></div></div></div><div class="note-btn-group btn-group note-font"><button type="button" class="note-btn btn btn-light btn-sm note-btn-bold active" tabindex="-1" title="" data-original-title="Bold (CTRL+B)"><i class="note-icon-bold"></i></button><button type="button" class="note-btn btn btn-light btn-sm note-btn-underline" tabindex="-1" title="" data-original-title="Underline (CTRL+U)"><i class="note-icon-underline"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Remove Font Style (CTRL+\)"><i class="note-icon-eraser"></i></button></div><div class="note-btn-group btn-group note-fontname"><div class="note-btn-group btn-group"><button type="button" class="note-btn btn btn-light btn-sm dropdown-toggle" tabindex="-1" data-toggle="dropdown" title="" data-original-title="Font Family"><span class="note-current-fontname">Open Sans</span></button><div class="dropdown-menu note-check dropdown-fontname"><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Arial"><i class="note-icon-menu-check"></i> <span style="font-family:Arial">Arial</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Arial Black"><i class="note-icon-menu-check"></i> <span style="font-family:Arial Black">Arial Black</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Comic Sans MS"><i class="note-icon-menu-check"></i> <span style="font-family:Comic Sans MS">Comic Sans MS</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Courier New"><i class="note-icon-menu-check"></i> <span style="font-family:Courier New">Courier New</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Helvetica"><i class="note-icon-menu-check"></i> <span style="font-family:Helvetica">Helvetica</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Impact"><i class="note-icon-menu-check"></i> <span style="font-family:Impact">Impact</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Tahoma"><i class="note-icon-menu-check"></i> <span style="font-family:Tahoma">Tahoma</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Times New Roman"><i class="note-icon-menu-check"></i> <span style="font-family:Times New Roman">Times New Roman</span></a><a class="dropdown-item" href="http://localhost:8585/admin/assignment/edit/3#" data-value="Verdana"><i class="note-icon-menu-check"></i> <span style="font-family:Verdana">Verdana</span></a></div></div></div><div class="note-btn-group btn-group note-color"><div class="note-btn-group btn-group note-color"><button type="button" class="note-btn btn btn-light btn-sm note-current-color-button" tabindex="-1" title="" data-original-title="Recent Color" data-backcolor="#FFFF00"><i class="note-icon-font note-recent-color" style="background-color: rgb(255, 255, 0);"></i></button><button type="button" class="note-btn btn btn-light btn-sm dropdown-toggle" tabindex="-1" data-toggle="dropdown" title="" data-original-title="More Color"></button><div class="dropdown-menu"><div class="note-palette">  <div class="note-palette-title">Background Color</div>  <div>    <button type="button" class="note-color-reset btn btn-light" data-event="backColor" data-value="inherit">Transparent    </button>  </div>  <div class="note-holder" data-event="backColor"><div class="note-color-palette"><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#000000" data-event="backColor" data-value="#000000" title="" data-toggle="button" tabindex="-1" data-original-title="#000000"></button><button type="button" class="note-color-btn" style="background-color:#424242" data-event="backColor" data-value="#424242" title="" data-toggle="button" tabindex="-1" data-original-title="#424242"></button><button type="button" class="note-color-btn" style="background-color:#636363" data-event="backColor" data-value="#636363" title="" data-toggle="button" tabindex="-1" data-original-title="#636363"></button><button type="button" class="note-color-btn" style="background-color:#9C9C94" data-event="backColor" data-value="#9C9C94" title="" data-toggle="button" tabindex="-1" data-original-title="#9C9C94"></button><button type="button" class="note-color-btn" style="background-color:#CEC6CE" data-event="backColor" data-value="#CEC6CE" title="" data-toggle="button" tabindex="-1" data-original-title="#CEC6CE"></button><button type="button" class="note-color-btn" style="background-color:#EFEFEF" data-event="backColor" data-value="#EFEFEF" title="" data-toggle="button" tabindex="-1" data-original-title="#EFEFEF"></button><button type="button" class="note-color-btn" style="background-color:#F7F7F7" data-event="backColor" data-value="#F7F7F7" title="" data-toggle="button" tabindex="-1" data-original-title="#F7F7F7"></button><button type="button" class="note-color-btn" style="background-color:#FFFFFF" data-event="backColor" data-value="#FFFFFF" title="" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#FF0000" data-event="backColor" data-value="#FF0000" title="" data-toggle="button" tabindex="-1" data-original-title="#FF0000"></button><button type="button" class="note-color-btn" style="background-color:#FF9C00" data-event="backColor" data-value="#FF9C00" title="" data-toggle="button" tabindex="-1" data-original-title="#FF9C00"></button><button type="button" class="note-color-btn" style="background-color:#FFFF00" data-event="backColor" data-value="#FFFF00" title="" data-toggle="button" tabindex="-1" data-original-title="#FFFF00"></button><button type="button" class="note-color-btn" style="background-color:#00FF00" data-event="backColor" data-value="#00FF00" title="" data-toggle="button" tabindex="-1" data-original-title="#00FF00"></button><button type="button" class="note-color-btn" style="background-color:#00FFFF" data-event="backColor" data-value="#00FFFF" title="" data-toggle="button" tabindex="-1" data-original-title="#00FFFF"></button><button type="button" class="note-color-btn" style="background-color:#0000FF" data-event="backColor" data-value="#0000FF" title="" data-toggle="button" tabindex="-1" data-original-title="#0000FF"></button><button type="button" class="note-color-btn" style="background-color:#9C00FF" data-event="backColor" data-value="#9C00FF" title="" data-toggle="button" tabindex="-1" data-original-title="#9C00FF"></button><button type="button" class="note-color-btn" style="background-color:#FF00FF" data-event="backColor" data-value="#FF00FF" title="" data-toggle="button" tabindex="-1" data-original-title="#FF00FF"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#F7C6CE" data-event="backColor" data-value="#F7C6CE" title="" data-toggle="button" tabindex="-1" data-original-title="#F7C6CE"></button><button type="button" class="note-color-btn" style="background-color:#FFE7CE" data-event="backColor" data-value="#FFE7CE" title="" data-toggle="button" tabindex="-1" data-original-title="#FFE7CE"></button><button type="button" class="note-color-btn" style="background-color:#FFEFC6" data-event="backColor" data-value="#FFEFC6" title="" data-toggle="button" tabindex="-1" data-original-title="#FFEFC6"></button><button type="button" class="note-color-btn" style="background-color:#D6EFD6" data-event="backColor" data-value="#D6EFD6" title="" data-toggle="button" tabindex="-1" data-original-title="#D6EFD6"></button><button type="button" class="note-color-btn" style="background-color:#CEDEE7" data-event="backColor" data-value="#CEDEE7" title="" data-toggle="button" tabindex="-1" data-original-title="#CEDEE7"></button><button type="button" class="note-color-btn" style="background-color:#CEE7F7" data-event="backColor" data-value="#CEE7F7" title="" data-toggle="button" tabindex="-1" data-original-title="#CEE7F7"></button><button type="button" class="note-color-btn" style="background-color:#D6D6E7" data-event="backColor" data-value="#D6D6E7" title="" data-toggle="button" tabindex="-1" data-original-title="#D6D6E7"></button><button type="button" class="note-color-btn" style="background-color:#E7D6DE" data-event="backColor" data-value="#E7D6DE" title="" data-toggle="button" tabindex="-1" data-original-title="#E7D6DE"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#E79C9C" data-event="backColor" data-value="#E79C9C" title="" data-toggle="button" tabindex="-1" data-original-title="#E79C9C"></button><button type="button" class="note-color-btn" style="background-color:#FFC69C" data-event="backColor" data-value="#FFC69C" title="" data-toggle="button" tabindex="-1" data-original-title="#FFC69C"></button><button type="button" class="note-color-btn" style="background-color:#FFE79C" data-event="backColor" data-value="#FFE79C" title="" data-toggle="button" tabindex="-1" data-original-title="#FFE79C"></button><button type="button" class="note-color-btn" style="background-color:#B5D6A5" data-event="backColor" data-value="#B5D6A5" title="" data-toggle="button" tabindex="-1" data-original-title="#B5D6A5"></button><button type="button" class="note-color-btn" style="background-color:#A5C6CE" data-event="backColor" data-value="#A5C6CE" title="" data-toggle="button" tabindex="-1" data-original-title="#A5C6CE"></button><button type="button" class="note-color-btn" style="background-color:#9CC6EF" data-event="backColor" data-value="#9CC6EF" title="" data-toggle="button" tabindex="-1" data-original-title="#9CC6EF"></button><button type="button" class="note-color-btn" style="background-color:#B5A5D6" data-event="backColor" data-value="#B5A5D6" title="" data-toggle="button" tabindex="-1" data-original-title="#B5A5D6"></button><button type="button" class="note-color-btn" style="background-color:#D6A5BD" data-event="backColor" data-value="#D6A5BD" title="" data-toggle="button" tabindex="-1" data-original-title="#D6A5BD"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#E76363" data-event="backColor" data-value="#E76363" title="" data-toggle="button" tabindex="-1" data-original-title="#E76363"></button><button type="button" class="note-color-btn" style="background-color:#F7AD6B" data-event="backColor" data-value="#F7AD6B" title="" data-toggle="button" tabindex="-1" data-original-title="#F7AD6B"></button><button type="button" class="note-color-btn" style="background-color:#FFD663" data-event="backColor" data-value="#FFD663" title="" data-toggle="button" tabindex="-1" data-original-title="#FFD663"></button><button type="button" class="note-color-btn" style="background-color:#94BD7B" data-event="backColor" data-value="#94BD7B" title="" data-toggle="button" tabindex="-1" data-original-title="#94BD7B"></button><button type="button" class="note-color-btn" style="background-color:#73A5AD" data-event="backColor" data-value="#73A5AD" title="" data-toggle="button" tabindex="-1" data-original-title="#73A5AD"></button><button type="button" class="note-color-btn" style="background-color:#6BADDE" data-event="backColor" data-value="#6BADDE" title="" data-toggle="button" tabindex="-1" data-original-title="#6BADDE"></button><button type="button" class="note-color-btn" style="background-color:#8C7BC6" data-event="backColor" data-value="#8C7BC6" title="" data-toggle="button" tabindex="-1" data-original-title="#8C7BC6"></button><button type="button" class="note-color-btn" style="background-color:#C67BA5" data-event="backColor" data-value="#C67BA5" title="" data-toggle="button" tabindex="-1" data-original-title="#C67BA5"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#CE0000" data-event="backColor" data-value="#CE0000" title="" data-toggle="button" tabindex="-1" data-original-title="#CE0000"></button><button type="button" class="note-color-btn" style="background-color:#E79439" data-event="backColor" data-value="#E79439" title="" data-toggle="button" tabindex="-1" data-original-title="#E79439"></button><button type="button" class="note-color-btn" style="background-color:#EFC631" data-event="backColor" data-value="#EFC631" title="" data-toggle="button" tabindex="-1" data-original-title="#EFC631"></button><button type="button" class="note-color-btn" style="background-color:#6BA54A" data-event="backColor" data-value="#6BA54A" title="" data-toggle="button" tabindex="-1" data-original-title="#6BA54A"></button><button type="button" class="note-color-btn" style="background-color:#4A7B8C" data-event="backColor" data-value="#4A7B8C" title="" data-toggle="button" tabindex="-1" data-original-title="#4A7B8C"></button><button type="button" class="note-color-btn" style="background-color:#3984C6" data-event="backColor" data-value="#3984C6" title="" data-toggle="button" tabindex="-1" data-original-title="#3984C6"></button><button type="button" class="note-color-btn" style="background-color:#634AA5" data-event="backColor" data-value="#634AA5" title="" data-toggle="button" tabindex="-1" data-original-title="#634AA5"></button><button type="button" class="note-color-btn" style="background-color:#A54A7B" data-event="backColor" data-value="#A54A7B" title="" data-toggle="button" tabindex="-1" data-original-title="#A54A7B"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#9C0000" data-event="backColor" data-value="#9C0000" title="" data-toggle="button" tabindex="-1" data-original-title="#9C0000"></button><button type="button" class="note-color-btn" style="background-color:#B56308" data-event="backColor" data-value="#B56308" title="" data-toggle="button" tabindex="-1" data-original-title="#B56308"></button><button type="button" class="note-color-btn" style="background-color:#BD9400" data-event="backColor" data-value="#BD9400" title="" data-toggle="button" tabindex="-1" data-original-title="#BD9400"></button><button type="button" class="note-color-btn" style="background-color:#397B21" data-event="backColor" data-value="#397B21" title="" data-toggle="button" tabindex="-1" data-original-title="#397B21"></button><button type="button" class="note-color-btn" style="background-color:#104A5A" data-event="backColor" data-value="#104A5A" title="" data-toggle="button" tabindex="-1" data-original-title="#104A5A"></button><button type="button" class="note-color-btn" style="background-color:#085294" data-event="backColor" data-value="#085294" title="" data-toggle="button" tabindex="-1" data-original-title="#085294"></button><button type="button" class="note-color-btn" style="background-color:#311873" data-event="backColor" data-value="#311873" title="" data-toggle="button" tabindex="-1" data-original-title="#311873"></button><button type="button" class="note-color-btn" style="background-color:#731842" data-event="backColor" data-value="#731842" title="" data-toggle="button" tabindex="-1" data-original-title="#731842"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#630000" data-event="backColor" data-value="#630000" title="" data-toggle="button" tabindex="-1" data-original-title="#630000"></button><button type="button" class="note-color-btn" style="background-color:#7B3900" data-event="backColor" data-value="#7B3900" title="" data-toggle="button" tabindex="-1" data-original-title="#7B3900"></button><button type="button" class="note-color-btn" style="background-color:#846300" data-event="backColor" data-value="#846300" title="" data-toggle="button" tabindex="-1" data-original-title="#846300"></button><button type="button" class="note-color-btn" style="background-color:#295218" data-event="backColor" data-value="#295218" title="" data-toggle="button" tabindex="-1" data-original-title="#295218"></button><button type="button" class="note-color-btn" style="background-color:#083139" data-event="backColor" data-value="#083139" title="" data-toggle="button" tabindex="-1" data-original-title="#083139"></button><button type="button" class="note-color-btn" style="background-color:#003163" data-event="backColor" data-value="#003163" title="" data-toggle="button" tabindex="-1" data-original-title="#003163"></button><button type="button" class="note-color-btn" style="background-color:#21104A" data-event="backColor" data-value="#21104A" title="" data-toggle="button" tabindex="-1" data-original-title="#21104A"></button><button type="button" class="note-color-btn" style="background-color:#4A1031" data-event="backColor" data-value="#4A1031" title="" data-toggle="button" tabindex="-1" data-original-title="#4A1031"></button></div></div></div></div><div class="note-palette">  <div class="note-palette-title">Foreground Color</div>  <div>    <button type="button" class="note-color-reset btn btn-light" data-event="removeFormat" data-value="foreColor">Reset to default    </button>  </div>  <div class="note-holder" data-event="foreColor"><div class="note-color-palette"><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#000000" data-event="foreColor" data-value="#000000" title="" data-toggle="button" tabindex="-1" data-original-title="#000000"></button><button type="button" class="note-color-btn" style="background-color:#424242" data-event="foreColor" data-value="#424242" title="" data-toggle="button" tabindex="-1" data-original-title="#424242"></button><button type="button" class="note-color-btn" style="background-color:#636363" data-event="foreColor" data-value="#636363" title="" data-toggle="button" tabindex="-1" data-original-title="#636363"></button><button type="button" class="note-color-btn" style="background-color:#9C9C94" data-event="foreColor" data-value="#9C9C94" title="" data-toggle="button" tabindex="-1" data-original-title="#9C9C94"></button><button type="button" class="note-color-btn" style="background-color:#CEC6CE" data-event="foreColor" data-value="#CEC6CE" title="" data-toggle="button" tabindex="-1" data-original-title="#CEC6CE"></button><button type="button" class="note-color-btn" style="background-color:#EFEFEF" data-event="foreColor" data-value="#EFEFEF" title="" data-toggle="button" tabindex="-1" data-original-title="#EFEFEF"></button><button type="button" class="note-color-btn" style="background-color:#F7F7F7" data-event="foreColor" data-value="#F7F7F7" title="" data-toggle="button" tabindex="-1" data-original-title="#F7F7F7"></button><button type="button" class="note-color-btn" style="background-color:#FFFFFF" data-event="foreColor" data-value="#FFFFFF" title="" data-toggle="button" tabindex="-1" data-original-title="#FFFFFF"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#FF0000" data-event="foreColor" data-value="#FF0000" title="" data-toggle="button" tabindex="-1" data-original-title="#FF0000"></button><button type="button" class="note-color-btn" style="background-color:#FF9C00" data-event="foreColor" data-value="#FF9C00" title="" data-toggle="button" tabindex="-1" data-original-title="#FF9C00"></button><button type="button" class="note-color-btn" style="background-color:#FFFF00" data-event="foreColor" data-value="#FFFF00" title="" data-toggle="button" tabindex="-1" data-original-title="#FFFF00"></button><button type="button" class="note-color-btn" style="background-color:#00FF00" data-event="foreColor" data-value="#00FF00" title="" data-toggle="button" tabindex="-1" data-original-title="#00FF00"></button><button type="button" class="note-color-btn" style="background-color:#00FFFF" data-event="foreColor" data-value="#00FFFF" title="" data-toggle="button" tabindex="-1" data-original-title="#00FFFF"></button><button type="button" class="note-color-btn" style="background-color:#0000FF" data-event="foreColor" data-value="#0000FF" title="" data-toggle="button" tabindex="-1" data-original-title="#0000FF"></button><button type="button" class="note-color-btn" style="background-color:#9C00FF" data-event="foreColor" data-value="#9C00FF" title="" data-toggle="button" tabindex="-1" data-original-title="#9C00FF"></button><button type="button" class="note-color-btn" style="background-color:#FF00FF" data-event="foreColor" data-value="#FF00FF" title="" data-toggle="button" tabindex="-1" data-original-title="#FF00FF"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#F7C6CE" data-event="foreColor" data-value="#F7C6CE" title="" data-toggle="button" tabindex="-1" data-original-title="#F7C6CE"></button><button type="button" class="note-color-btn" style="background-color:#FFE7CE" data-event="foreColor" data-value="#FFE7CE" title="" data-toggle="button" tabindex="-1" data-original-title="#FFE7CE"></button><button type="button" class="note-color-btn" style="background-color:#FFEFC6" data-event="foreColor" data-value="#FFEFC6" title="" data-toggle="button" tabindex="-1" data-original-title="#FFEFC6"></button><button type="button" class="note-color-btn" style="background-color:#D6EFD6" data-event="foreColor" data-value="#D6EFD6" title="" data-toggle="button" tabindex="-1" data-original-title="#D6EFD6"></button><button type="button" class="note-color-btn" style="background-color:#CEDEE7" data-event="foreColor" data-value="#CEDEE7" title="" data-toggle="button" tabindex="-1" data-original-title="#CEDEE7"></button><button type="button" class="note-color-btn" style="background-color:#CEE7F7" data-event="foreColor" data-value="#CEE7F7" title="" data-toggle="button" tabindex="-1" data-original-title="#CEE7F7"></button><button type="button" class="note-color-btn" style="background-color:#D6D6E7" data-event="foreColor" data-value="#D6D6E7" title="" data-toggle="button" tabindex="-1" data-original-title="#D6D6E7"></button><button type="button" class="note-color-btn" style="background-color:#E7D6DE" data-event="foreColor" data-value="#E7D6DE" title="" data-toggle="button" tabindex="-1" data-original-title="#E7D6DE"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#E79C9C" data-event="foreColor" data-value="#E79C9C" title="" data-toggle="button" tabindex="-1" data-original-title="#E79C9C"></button><button type="button" class="note-color-btn" style="background-color:#FFC69C" data-event="foreColor" data-value="#FFC69C" title="" data-toggle="button" tabindex="-1" data-original-title="#FFC69C"></button><button type="button" class="note-color-btn" style="background-color:#FFE79C" data-event="foreColor" data-value="#FFE79C" title="" data-toggle="button" tabindex="-1" data-original-title="#FFE79C"></button><button type="button" class="note-color-btn" style="background-color:#B5D6A5" data-event="foreColor" data-value="#B5D6A5" title="" data-toggle="button" tabindex="-1" data-original-title="#B5D6A5"></button><button type="button" class="note-color-btn" style="background-color:#A5C6CE" data-event="foreColor" data-value="#A5C6CE" title="" data-toggle="button" tabindex="-1" data-original-title="#A5C6CE"></button><button type="button" class="note-color-btn" style="background-color:#9CC6EF" data-event="foreColor" data-value="#9CC6EF" title="" data-toggle="button" tabindex="-1" data-original-title="#9CC6EF"></button><button type="button" class="note-color-btn" style="background-color:#B5A5D6" data-event="foreColor" data-value="#B5A5D6" title="" data-toggle="button" tabindex="-1" data-original-title="#B5A5D6"></button><button type="button" class="note-color-btn" style="background-color:#D6A5BD" data-event="foreColor" data-value="#D6A5BD" title="" data-toggle="button" tabindex="-1" data-original-title="#D6A5BD"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#E76363" data-event="foreColor" data-value="#E76363" title="" data-toggle="button" tabindex="-1" data-original-title="#E76363"></button><button type="button" class="note-color-btn" style="background-color:#F7AD6B" data-event="foreColor" data-value="#F7AD6B" title="" data-toggle="button" tabindex="-1" data-original-title="#F7AD6B"></button><button type="button" class="note-color-btn" style="background-color:#FFD663" data-event="foreColor" data-value="#FFD663" title="" data-toggle="button" tabindex="-1" data-original-title="#FFD663"></button><button type="button" class="note-color-btn" style="background-color:#94BD7B" data-event="foreColor" data-value="#94BD7B" title="" data-toggle="button" tabindex="-1" data-original-title="#94BD7B"></button><button type="button" class="note-color-btn" style="background-color:#73A5AD" data-event="foreColor" data-value="#73A5AD" title="" data-toggle="button" tabindex="-1" data-original-title="#73A5AD"></button><button type="button" class="note-color-btn" style="background-color:#6BADDE" data-event="foreColor" data-value="#6BADDE" title="" data-toggle="button" tabindex="-1" data-original-title="#6BADDE"></button><button type="button" class="note-color-btn" style="background-color:#8C7BC6" data-event="foreColor" data-value="#8C7BC6" title="" data-toggle="button" tabindex="-1" data-original-title="#8C7BC6"></button><button type="button" class="note-color-btn" style="background-color:#C67BA5" data-event="foreColor" data-value="#C67BA5" title="" data-toggle="button" tabindex="-1" data-original-title="#C67BA5"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#CE0000" data-event="foreColor" data-value="#CE0000" title="" data-toggle="button" tabindex="-1" data-original-title="#CE0000"></button><button type="button" class="note-color-btn" style="background-color:#E79439" data-event="foreColor" data-value="#E79439" title="" data-toggle="button" tabindex="-1" data-original-title="#E79439"></button><button type="button" class="note-color-btn" style="background-color:#EFC631" data-event="foreColor" data-value="#EFC631" title="" data-toggle="button" tabindex="-1" data-original-title="#EFC631"></button><button type="button" class="note-color-btn" style="background-color:#6BA54A" data-event="foreColor" data-value="#6BA54A" title="" data-toggle="button" tabindex="-1" data-original-title="#6BA54A"></button><button type="button" class="note-color-btn" style="background-color:#4A7B8C" data-event="foreColor" data-value="#4A7B8C" title="" data-toggle="button" tabindex="-1" data-original-title="#4A7B8C"></button><button type="button" class="note-color-btn" style="background-color:#3984C6" data-event="foreColor" data-value="#3984C6" title="" data-toggle="button" tabindex="-1" data-original-title="#3984C6"></button><button type="button" class="note-color-btn" style="background-color:#634AA5" data-event="foreColor" data-value="#634AA5" title="" data-toggle="button" tabindex="-1" data-original-title="#634AA5"></button><button type="button" class="note-color-btn" style="background-color:#A54A7B" data-event="foreColor" data-value="#A54A7B" title="" data-toggle="button" tabindex="-1" data-original-title="#A54A7B"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#9C0000" data-event="foreColor" data-value="#9C0000" title="" data-toggle="button" tabindex="-1" data-original-title="#9C0000"></button><button type="button" class="note-color-btn" style="background-color:#B56308" data-event="foreColor" data-value="#B56308" title="" data-toggle="button" tabindex="-1" data-original-title="#B56308"></button><button type="button" class="note-color-btn" style="background-color:#BD9400" data-event="foreColor" data-value="#BD9400" title="" data-toggle="button" tabindex="-1" data-original-title="#BD9400"></button><button type="button" class="note-color-btn" style="background-color:#397B21" data-event="foreColor" data-value="#397B21" title="" data-toggle="button" tabindex="-1" data-original-title="#397B21"></button><button type="button" class="note-color-btn" style="background-color:#104A5A" data-event="foreColor" data-value="#104A5A" title="" data-toggle="button" tabindex="-1" data-original-title="#104A5A"></button><button type="button" class="note-color-btn" style="background-color:#085294" data-event="foreColor" data-value="#085294" title="" data-toggle="button" tabindex="-1" data-original-title="#085294"></button><button type="button" class="note-color-btn" style="background-color:#311873" data-event="foreColor" data-value="#311873" title="" data-toggle="button" tabindex="-1" data-original-title="#311873"></button><button type="button" class="note-color-btn" style="background-color:#731842" data-event="foreColor" data-value="#731842" title="" data-toggle="button" tabindex="-1" data-original-title="#731842"></button></div><div class="note-color-row"><button type="button" class="note-color-btn" style="background-color:#630000" data-event="foreColor" data-value="#630000" title="" data-toggle="button" tabindex="-1" data-original-title="#630000"></button><button type="button" class="note-color-btn" style="background-color:#7B3900" data-event="foreColor" data-value="#7B3900" title="" data-toggle="button" tabindex="-1" data-original-title="#7B3900"></button><button type="button" class="note-color-btn" style="background-color:#846300" data-event="foreColor" data-value="#846300" title="" data-toggle="button" tabindex="-1" data-original-title="#846300"></button><button type="button" class="note-color-btn" style="background-color:#295218" data-event="foreColor" data-value="#295218" title="" data-toggle="button" tabindex="-1" data-original-title="#295218"></button><button type="button" class="note-color-btn" style="background-color:#083139" data-event="foreColor" data-value="#083139" title="" data-toggle="button" tabindex="-1" data-original-title="#083139"></button><button type="button" class="note-color-btn" style="background-color:#003163" data-event="foreColor" data-value="#003163" title="" data-toggle="button" tabindex="-1" data-original-title="#003163"></button><button type="button" class="note-color-btn" style="background-color:#21104A" data-event="foreColor" data-value="#21104A" title="" data-toggle="button" tabindex="-1" data-original-title="#21104A"></button><button type="button" class="note-color-btn" style="background-color:#4A1031" data-event="foreColor" data-value="#4A1031" title="" data-toggle="button" tabindex="-1" data-original-title="#4A1031"></button></div></div></div></div></div></div></div><div class="note-btn-group btn-group note-para"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Unordered list (CTRL+SHIFT+NUM7)"><i class="note-icon-unorderedlist"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Ordered list (CTRL+SHIFT+NUM8)"><i class="note-icon-orderedlist"></i></button><div class="note-btn-group btn-group"><button type="button" class="note-btn btn btn-light btn-sm dropdown-toggle" tabindex="-1" data-toggle="dropdown" title="" data-original-title="Paragraph"><i class="note-icon-align-left"></i></button><div class="dropdown-menu"><div class="note-btn-group btn-group note-align"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Align left (CTRL+SHIFT+L)"><i class="note-icon-align-left"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Align center (CTRL+SHIFT+E)"><i class="note-icon-align-center"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Align right (CTRL+SHIFT+R)"><i class="note-icon-align-right"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Justify full (CTRL+SHIFT+J)"><i class="note-icon-align-justify"></i></button></div><div class="note-btn-group btn-group note-list"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Outdent (CTRL+[)"><i class="note-icon-align-outdent"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Indent (CTRL+])"><i class="note-icon-align-indent"></i></button></div></div></div></div><div class="note-btn-group btn-group note-table"><div class="note-btn-group btn-group"><button type="button" class="note-btn btn btn-light btn-sm dropdown-toggle" tabindex="-1" data-toggle="dropdown" title="" data-original-title="Table"><i class="note-icon-table"></i></button><div class="dropdown-menu note-table"><div class="note-dimension-picker">  <div class="note-dimension-picker-mousecatcher" data-event="insertTable" data-value="1x1" style="width: 10em; height: 10em;"></div>  <div class="note-dimension-picker-highlighted"></div>  <div class="note-dimension-picker-unhighlighted"></div></div><div class="note-dimension-display">1 x 1</div></div></div></div><div class="note-btn-group btn-group note-insert"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Link (CTRL+K)"><i class="note-icon-link"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Picture"><i class="note-icon-picture"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Video"><i class="note-icon-video"></i></button></div><div class="note-btn-group btn-group note-view"><button type="button" class="note-btn btn btn-light btn-sm btn-fullscreen" tabindex="-1" title="" data-original-title="Full Screen"><i class="note-icon-arrows-alt"></i></button><button type="button" class="note-btn btn btn-light btn-sm btn-codeview" tabindex="-1" title="" data-original-title="Code View"><i class="note-icon-code"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Help"><i class="note-icon-question"></i></button></div></div><div class="note-editing-area"><div class="note-handle"><div class="note-control-selection" style="display: none;"><div class="note-control-selection-bg"></div><div class="note-control-holder note-control-nw"></div><div class="note-control-holder note-control-ne"></div><div class="note-control-holder note-control-sw"></div><div class="note-control-sizing note-control-se"></div><div class="note-control-selection-info"></div></div></div><textarea class="note-codable"></textarea><div class="note-editable card-block" contenteditable="true" style="height: 300px;"><span style="font-weight: bold;">Sample </span><span style="color: rgb(255, 0, 0);">Problem </span><span style="background-color: rgb(255, 255, 0);">Description</span></div></div><div class="note-statusbar">  <div class="note-resizebar">    <div class="note-icon-bar"></div>    <div class="note-icon-bar"></div>    <div class="note-icon-bar"></div>  </div></div><div class="modal link-dialog" aria-hidden="false" tabindex="-1"><div class="modal-dialog">  <div class="modal-content">    <div class="modal-header">      <h4 class="modal-title">Insert Link</h4>      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>    </div>    <div class="modal-body"><div class="form-group note-form-group"><label class="note-form-label">Text to display</label><input class="note-link-text form-control  note-form-control  note-input" type="text"></div><div class="form-group note-form-group"><label class="note-form-label">To what URL should this link go?</label><input class="note-link-url form-control note-form-control note-input" type="text" value="http://"></div><label class="custom-control custom-checkbox" for="sn-checkbox-open-in-new-window"> <input type="checkbox" class="custom-control-input" id="sn-checkbox-open-in-new-window" checked=""> <span class="custom-control-indicator"></span> <span class="custom-control-description">Open in new window</span></label></div>    <div class="modal-footer"><button href="#" class="btn btn-primary note-btn note-btn-primary note-link-btn disabled" disabled="">Insert Link</button></div>  </div></div></div><div class="modal" aria-hidden="false" tabindex="-1"><div class="modal-dialog">  <div class="modal-content">    <div class="modal-header">      <h4 class="modal-title">Insert Image</h4>      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>    </div>    <div class="modal-body"><div class="form-group note-form-group note-group-select-from-files"><label class="note-form-label">Select from files</label><input class="note-image-input form-control note-form-control note-input" type="file" name="files" accept="image/*" multiple="multiple"></div><div class="form-group note-group-image-url" style="overflow:auto;"><label class="note-form-label">Image URL</label><input class="note-image-url form-control note-form-control note-input  col-md-12" type="text"></div></div>    <div class="modal-footer"><button href="#" class="btn btn-primary note-btn note-btn-primary note-image-btn disabled" disabled="">Insert Image</button></div>  </div></div></div><div class="modal" aria-hidden="false" tabindex="-1"><div class="modal-dialog">  <div class="modal-content">    <div class="modal-header">      <h4 class="modal-title">Insert Video</h4>      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>    </div>    <div class="modal-body"><div class="form-group note-form-group row-fluid"><label class="note-form-label">Video URL? <small class="text-muted">(YouTube, Vimeo, Vine, Instagram, DailyMotion or Youku)</small></label><input class="note-video-url form-control  note-form-control note-input span12" type="text"></div></div>    <div class="modal-footer"><button href="#" class="btn btn-primary note-btn note-btn-primary  note-video-btn disabled" disabled="">Insert Video</button></div>  </div></div></div><div class="modal" aria-hidden="false" tabindex="-1"><div class="modal-dialog">  <div class="modal-content">    <div class="modal-header">      <h4 class="modal-title">Help</h4>      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>    </div>    <div class="modal-body" style="max-height: 300px; overflow: scroll;"><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>ENTER</kbd></label><span>Insert Paragraph</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+Z</kbd></label><span>Undoes the last command</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+Y</kbd></label><span>Redoes the last command</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>TAB</kbd></label><span>Tab</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>SHIFT+TAB</kbd></label><span>Untab</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+B</kbd></label><span>Set a bold style</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+I</kbd></label><span>Set a italic style</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+U</kbd></label><span>Set a underline style</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+SHIFT+S</kbd></label><span>Set a strikethrough style</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+BACKSLASH</kbd></label><span>Clean a style</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+SHIFT+L</kbd></label><span>Set left align</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+SHIFT+E</kbd></label><span>Set center align</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+SHIFT+R</kbd></label><span>Set right align</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+SHIFT+J</kbd></label><span>Set full align</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+SHIFT+NUM7</kbd></label><span>Toggle unordered list</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+SHIFT+NUM8</kbd></label><span>Toggle ordered list</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+LEFTBRACKET</kbd></label><span>Outdent on current paragraph</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+RIGHTBRACKET</kbd></label><span>Indent on current paragraph</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+NUM0</kbd></label><span>Change current block's format as a paragraph(P tag)</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+NUM1</kbd></label><span>Change current block's format as H1</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+NUM2</kbd></label><span>Change current block's format as H2</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+NUM3</kbd></label><span>Change current block's format as H3</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+NUM4</kbd></label><span>Change current block's format as H4</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+NUM5</kbd></label><span>Change current block's format as H5</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+NUM6</kbd></label><span>Change current block's format as H6</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+ENTER</kbd></label><span>Insert horizontal rule</span><div class="help-list-item"></div><label style="width: 180px; margin-right: 10px;"><kbd>CTRL+K</kbd></label><span>Show Link Dialog</span></div>    <div class="modal-footer"><p class="text-center"><a href="http://summernote.org/" target="_blank">Summernote 0.8.8</a> · <a href="https://github.com/summernote/summernote" target="_blank">Project</a> · <a href="https://github.com/summernote/summernote/issues" target="_blank">Issues</a></p></div>  </div></div></div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <input style="border-radius: 5px" id="step-one" type="button" name="next" class="next action-button" value="Next Step">
+              </fieldset>
+              <!--                            tescases-->
+              <fieldset>
+                <div class="form-card">
+                  <h2 class="fs-title">Testcases</h2>
+                  <p style="color: #2C3E50">A test case consist of input values to the program and the excepted output. Input will be fed to the program's STDIN and output
+                    will be excepted in STDOUT.</p>
+                  <input type="hidden" id="number_testcase" value="0">
+                  <div id="field">
+                    <div>
+                      <div id="field0">
+                        <div class="form-group row">
+                          <div class="col">
+                            <label>Name:<span class="text-danger">*</span></label>
+                            <input value="a" style="margin-bottom: unset" id="name" name="TSName[]" class="form-validate" placeholder="Testcase name...">
+                          </div>
+                          <div class="col">
+                            <label>Score:<span class="text-danger">*</span></label>
+                            <input value="1" tyle="margin-bottom: unset" id="score" name="TSScore[]" class="form-validate" placeholder="Score...">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col">
+                            <label>Input:<span class="text-danger">*</span></label>
+                            <textarea value="1" id="input" style="margin-bottom: unset; height: 140px" name="TSInput[]" class="form-validate">Input...</textarea>
+                          </div>
+                          <div class="col">
+                            <label>Ouput:<span class="text-danger">*</span></label>
+                            <textarea value="1" id="output" style="margin-bottom: unset; height: 140px" name="TSOutput[]" class="form-validate">Output...</textarea>
+                          </div>
+                        </div>
+                        <div style="margin-bottom: unset" class="form-group">
+                          <input name="check[]" style="width: unset; margin-botom: utnset; cursor: pointer" type="checkbox" checked="" value="true" class="iCheck-flat-green">
+                          <label class="control-label">Mark as sample test case</label>
+                        </div>
+                      </div><!--end field0-->
+                      
+                    </div>
+                  </div><!--end field-->
+                  <!--                                    Add more-->
+                  <div class="form-group">
+                    <div style="padding: unset" class="col-md-4 col-md-offset-8">
+                      <button style="border-radius: 5px" id="add-more" name="add-more" class="action-button">Add More</button>
+                    </div>
+                  </div>
+                </div>
+                <input style="border-radius: 5px" type="button" name="previous" class="previous action-button-previous" value="Previous">
+                <input style="border-radius: 5px" type="submit" name="next" class="next action-button" value="Save">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./Creating coding question_files/jquery.min.js.download"></script>
+  <script src="./Creating coding question_files/multl-step-form.js.download"></script>
+  <script>
+    $(document).ready(function () {
+      $('.remove-me').click(function (e) {
+        e.preventDefault();
+        var fieldNum = this.id.charAt(this.id.length - 1);
+        var fieldID = "#field" + fieldNum;
+        $(this).remove();
+        $(fieldID).remove();
+        debugger
+      });
+
+      document.getElementById('msform').addEventListener('submit', function (e) {
+        e.preventDefault();
+        debugger
+        var form = $('#msform');
+        if (form.valid() === true) {
+          var description = $('#summernote').summernote('code');
+          $('<input />').attr('type', 'hidden')
+                  .attr('name', 'description')
+                  .attr('value', description)
+                  .appendTo('#msform');
+          this.submit();
+        }
+      });
+    });
+  </script>
+</div>
+        <!--footer-->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Copyright © VectorLab 2018</small>
+                </div>
+            </div>
+        </footer>
+        <!--/footer-->
+    </div>
+    <!--main content wrapper end-->
+
+    <!--right sidebar-->
+    <div class="right-sidebar" id="right_side_bar">
+        <div class="card border-0">
+            <div class="card-body pb-0">
+                <!--close toggle-->
+                <a href="javascript:;" class="right_side_toggle float-right close-sidebar-icon">
+                    <i class=" ti-shift-right"> </i>
+                </a>
+                <!--/close toggle-->
+            </div>
+            <div class="card-body pt-2">
+
+                <div class="right-widget">
+                    <div class="custom-title-wrap bar-primary mb-4">
+                        <div class="custom-title">Today's Activity</div>
+                    </div>
+
+                    <ul class="list-unstyled base-timeline">
+                        <li class="time-dot-primary">
+                            <div class="base-timeline-info">
+                                <a href="http://localhost:8585/admin/assignment/edit/3#">John123</a> Successfully purchased item#26
+                            </div>
+                            <small class="text-muted">
+                                28 mins ago
+                            </small>
+                        </li>
+                        <li class="time-dot-danger">
+                            <div class="base-timeline-info">
+                                <a href="http://localhost:8585/admin/assignment/edit/3#" class="text-danger">Farnandez</a> placed the order for accessories
+                            </div>
+                            <small class="text-muted">
+                                2 days ago
+                            </small>
+                        </li>
+                        <li class="time-dot-purple">
+                            <div class="base-timeline-info">
+                                User <a href="http://localhost:8585/admin/assignment/edit/3#" class="text-purple">Lisa Maria</a> checked out from the market
+                            </div>
+                            <small class="text-muted">
+                                12 mins ago
+                            </small>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="right-widget">
+                    <div class="custom-title-wrap bar-danger mb-4">
+                        <div class="custom-title">Active Users</div>
+                    </div>
+
+                    <ul class="list-unstyled mb-0 list-widget">
+                        <li class="cursor">
+                            <div class="media mb-4">
+                                <div class="st-alphabet mr-3">
+                                    <img class="rounded-circle" src="./Creating coding question_files/avatar1.jpg" alt=" ">
+                                    <span class="status bg-success"></span>
+                                </div>
+                                <div class="media-body ">
+                                    <div class="float-left">
+                                        <h6 class="text-uppercase mb-0">shirley hoe</h6>
+                                        <span class="text-muted">Online</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="cursor">
+                            <div class="media mb-4">
+                                <div class="st-alphabet mr-3">
+                                    <img class="rounded-circle" src="./Creating coding question_files/avatar2.jpg" alt=" ">
+                                    <span class="status bg-warning"></span>
+                                </div>
+                                <div class="media-body ">
+                                    <div class="float-left">
+                                        <h6 class="text-uppercase mb-0">james alexender</h6>
+                                        <span class="text-muted">Screaming...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="cursor">
+                            <div class="media mb-4">
+                                <div class="st-alphabet mr-3">
+                                    <img class="rounded-circle" src="./Creating coding question_files/avatar3.jpg" alt=" ">
+                                    <span class="status bg-info"></span>
+                                </div>
+                                <div class="media-body">
+                                    <div class="float-left">
+                                        <h6 class="text-uppercase mb-0">ursula sitorus</h6>
+                                        <span class="text-muted">Start Exploring</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="cursor">
+                            <div class="media mb-3">
+                                <div class="st-alphabet mr-3">
+                                    <img class="rounded-circle" src="./Creating coding question_files/avatar4.jpg" alt=" ">
+                                    <span class="status bg-danger"></span>
+                                </div>
+                                <div class="media-body">
+                                    <div class="float-left">
+                                        <h6 class="text-uppercase mb-0">jonna pinedda</h6>
+                                        <span class="text-muted">Busy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="right-widget">
+
+                    <div class="custom-title-wrap bar-success mb-4">
+                        <div class="custom-title">Notification</div>
+                    </div>
+
+                    <div>
+                        <a class="nav-link border-bottom px-0 py-3" href="http://localhost:8585/admin/assignment/edit/3#">
+                                <span class="text-primary">
+                                <span class="weight700 f12">
+                                    <i class="vl_bell weight600 pr-2"></i>Weekly Update</span>
+                                </span>
+                            <span class="small float-right text-muted">03:14 AM</span>
+
+                            <div class="text-dark f12">
+                                This week project update report generated. All team members are requested to check the updates
+                            </div>
+                        </a>
+
+                        <a class="nav-link border-bottom px-0 py-3" href="http://localhost:8585/admin/assignment/edit/3#">
+                                <span class="text-danger">
+                                <span class="weight700 f12">
+                                    <i class="vl_Download-circle weight600 pr-2"></i>Server Error</span>
+                                </span>
+                            <span class="small float-right text-muted">10:34 AM</span>
+
+                            <div class="text-dark f12">
+                                Unexpectedly server response stop. Responsible members are requested to fix it soon
+                            </div>
+                        </a>
+
+                        <a class="nav-link border-bottom px-0 py-3" href="http://localhost:8585/admin/assignment/edit/3#">
+                                <span class="text-success">
+                                <span class="weight700 f12">
+                                    <i class="vl_screen weight600 pr-2"></i>Monthly Meeting</span>
+                                </span>
+                            <span class="small float-right text-muted">12:30 AM</span>
+
+                            <div class="text-dark f12">
+                                Our monthly meeting will be held on tomorrow sharp 12:30. All members are requested to attend this meeting.
+                            </div>
+                        </a>
+
+                        <div class="text-center mt-3">
+                            <a class="nav-link px-0" href="http://localhost:8585/admin/assignment/edit/3#">View all notification</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--right sidebar end-->
+</div>
+
+<!--basic scripts-->
+<script src="./Creating coding question_files/jquery.min.js.download"></script>
+<script src="./Creating coding question_files/jquery-ui.min.js.download"></script>
+<script src="./Creating coding question_files/popper.min.js.download"></script>
+<script src="./Creating coding question_files/bootstrap.min.js.download"></script>
+<script src="./Creating coding question_files/jquery.dcjqaccordion.2.7.js.download"></script>
+<script src="./Creating coding question_files/jquery.nicescroll.min.js.download"></script>
+
+<!--summernote-->
+<script src="./Creating coding question_files/summernote-bs4.min.js.download"></script>
+<!--init-->
+<script src="./Creating coding question_files/init-summernote.js.download"></script>
+<!--toastr-->
+<script src="./Creating coding question_files/toastr.js.download"></script>
+<!--init toastr-->
+<script src="./Creating coding question_files/init-toastr.js.download"></script>
+<!--validation-->
+<script type="text/javascript" src="./Creating coding question_files/validate.js.download"></script>
+<script type="text/javascript" src="./Creating coding question_files/additional-methods.js.download"></script>
+
+<!--multiple select-->
+<script src="./Creating coding question_files/jquery.multi-select.js.download"></script>
+<script src="./Creating coding question_files/jquery.quicksearch.js.download"></script>
+<!--init multiple select-->
+<script src="./Creating coding question_files/init-multiple-select.js.download"></script>
+
+<!--basic scripts initialization-->
+<script src="./Creating coding question_files/scripts.js.download"></script>
+
+
+
+<div class="note-popover popover in note-link-popover bottom" style="display: none;">  <div class="arrow"></div>  <div class="popover-content note-children-container"><span><a target="_blank"></a>&nbsp;</span><div class="note-btn-group btn-group note-link"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Edit"><i class="note-icon-link"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Unlink"><i class="note-icon-chain-broken"></i></button></div></div></div><div class="note-popover popover in note-image-popover bottom" style="display: none;">  <div class="arrow"></div>  <div class="popover-content note-children-container"><div class="note-btn-group btn-group note-imagesize"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Resize Full"><span class="note-fontsize-10">100%</span></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Resize Half"><span class="note-fontsize-10">50%</span></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Resize Quarter"><span class="note-fontsize-10">25%</span></button></div><div class="note-btn-group btn-group note-float"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Float Left"><i class="note-icon-align-left"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Float Right"><i class="note-icon-align-right"></i></button><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Float None"><i class="note-icon-align-justify"></i></button></div><div class="note-btn-group btn-group note-remove"><button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1" title="" data-original-title="Remove Image"><i class="note-icon-trash"></i></button></div></div></div><div class="note-popover popover in note-table-popover bottom" style="display: none;">  <div class="arrow"></div>  <div class="popover-content note-children-container"><div class="note-btn-group btn-group note-add"><button type="button" class="note-btn btn btn-light btn-sm btn-md" tabindex="-1" title="" data-original-title="Add row below"><i class="note-icon-row-below"></i></button><button type="button" class="note-btn btn btn-light btn-sm btn-md" tabindex="-1" title="" data-original-title="Add row above"><i class="note-icon-row-above"></i></button><button type="button" class="note-btn btn btn-light btn-sm btn-md" tabindex="-1" title="" data-original-title="Add column left"><i class="note-icon-col-before"></i></button><button type="button" class="note-btn btn btn-light btn-sm btn-md" tabindex="-1" title="" data-original-title="Add column right"><i class="note-icon-col-after"></i></button></div><div class="note-btn-group btn-group note-delete"><button type="button" class="note-btn btn btn-light btn-sm btn-md" tabindex="-1" title="" data-original-title="Delete row"><i class="note-icon-row-remove"></i></button><button type="button" class="note-btn btn btn-light btn-sm btn-md" tabindex="-1" title="" data-original-title="Delete column"><i class="note-icon-col-remove"></i></button><button type="button" class="note-btn btn btn-light btn-sm btn-md" tabindex="-1" title="" data-original-title="Delete table"><i class="note-icon-trash"></i></button></div></div></div></body></html>

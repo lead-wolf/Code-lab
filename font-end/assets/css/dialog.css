@@ -1,0 +1,72 @@
+
+  /* Dialog */
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: 999;
+}
+
+.dialog-content {
+    background-color: #f5ebeb;
+	color: #cb1212;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+	font-size: 14px;
+}
+
+.dialog-buttons {
+    margin-top: 10px;
+}
+
+/* .dialog-buttons #dal-cancel */
+
+#dal-cancel{
+    margin-left: 10px;
+    /* width: auto; */
+    background-color: #3710e7;
+    color: blanchedalmond;
+	text-decoration: none; 
+}
+
+.dialog-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+}
+
+#dal-login{
+	margin-left: 10px;
+    /* width: auto; */
+    background-color: #ff8952;
+    color: blanchedalmond;
+	text-decoration: none; 
+	/* visibility: hidden; */
+	/* display: none; */
+}
+
+#dal-ok{
+	margin-left: 40px;
+}
+
+a {
+    text-decoration: none; /* Xóa gạch chân */
+    border-radius: 5px; /* Bo góc nút */
+    display: inline-block; /* Để nó hiển thị giống nút */
+    text-align: center;
+}
+
+#dal-noti1, #dal-noti1{
+    font-size: 26px;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+
+    <title>Admin | Assignment</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+    
+    <link rel="stylesheet" href="/admin/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/dashlab-icon/dashlab-icon.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/toastr-master/toastr.css">
+    <link rel="stylesheet" href="/admin/assets/css/main.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script src="/admin/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/admin/assets/vendor/js-init/init-toastr.js"></script>
+    <script src="/admin/assets/vendor/toastr-master/toastr.js"></script>
+    <script src="/admin/assets/js/header.js" type="module"></script>
+    <script src="/admin/assets/js/assignment/assignment.js" type="module"></script>
+    <style>
+        .modal-content{
+            margin-top: 65px;
+        }
+
+        .modal-backdrop {
+            position: unset !important;
+        }
+
+        .modal {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .has-error, .help-block {
+            color: #a94442;
+            font-weight: 600;
+        }
+
+        .has-error {
+            border: 1px solid #a94442 !important;
+        }
+
+        .note-editor.fullscreen {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body class="left-sidebar-fixed">
+    <header id="header" class="app-header">
+    </header>
+    <div id="rightSidebar"></div>
+    <div id="footer"></div>
+
+    <div class="app-body" style="background-color: #f4f6f9;">
+        <div id="leftSidebar" class="left-nav-wrap"></div>
+            <div class="content-wrapper">
+                <div class="container-fluid" id="context" style="z-index: 500;">
+                    <!-- Context -->
+                     <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <p style="font-size: 20px" class="mb-sm-0 font-size-18">Câu hỏi bài tập</p>
+                
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                                        <li class="breadcrumb-item active">Coding question</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="d-none" id="messageSuccess"></span>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-sm-4">
+                                            <div class="search-box me-2 mb-2 d-inline-block">
+                                                <div class="position-relative">
+                                                    <input style="font-size: 14px" type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm...">
+                                                        <!--<i class="bx bx-search-alt search-icon"></i>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div style="float: right" class="text-sm-end">
+                                                <a style="text-transform: none; font-size: 13px" href="add.html" type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i style="margin-right: 5px" class="ti-plus"></i>Thêm bài tập mới</a>
+                                            </div>
+                                        </div><!-- end col-->
+                                    </div>
+                
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-nowrap table-check">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th class="align-middle">STT</th>
+                                                <th class="align-middle" style="width: 500px;">Tiêu đề</th>
+                                                <!-- <th class="align-middle">Mô tả</th> -->
+                                                <th class="align-middle">Ngôn ngữ</th>
+                                                <th class="align-middle">Level</th>
+                                                <th class="align-middle">Chỉnh sữa</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="assignmentTable">
+                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                     <div id="paginationAssignment" style="display: block;">
+                                        <div class="row col-sm-20">
+                                            <div class="col-sm-8" id="totalItemsAssignment">Tổng số mục: 0</div>
+                                            <div class="col-sm-1" id="lastLinkAssignment" style="display: flex; justify-content: center;">◀</div>
+                                            <div class="col-sm-2" id="pageLinksAssignment" style="display: flex; justify-content: center;">Trang 1/1</div>
+                                            <div class="col-sm-1" id="nextLinkAssignment" style="display: flex; justify-content: center;">▶</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- Context -->
+                </div>
+            </div>
+    </div>
+    <script src="/admin/assets/vendor/popper.min.js"></script>
+    <script src="/admin/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <script type="module" src="/assets/js/header.js"></script> -->
+    <meta charset="UTF-8">
+    <title>Online compiler</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/loading.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/lib/codemirror.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/3024-day.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/bespin.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/dracula.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/night.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/idea.css">
+    <link rel="stylesheet" href="/assets/codemirror-5.65.15/theme/oceanic-next.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="/assets/css/backToTop.css">
+    <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/chatbot.css">
+    <link rel="stylesheet" href="/admin/assets/vendor/toastr-master/toastr.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+    <script src="/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/admin/assets/vendor/js-init/init-toastr.js"></script>
+    <script src="/admin/assets/vendor/toastr-master/toastr.js"></script>
+
+    <style>
+        th{
+            border-width: 1px;
+        }
+        td{
+            border-width: 1px;
+        }
+        .bx-icon {
+            font-size: 20px;
+            position: absolute;
+            line-height: 41px;
+            margin-left: 15px;
+        }
+        .CodeMirror {
+            border: 1px solid #eee;
+        }
+
+        .dd-selected-image,
+        .dd-option-image {
+            width: 30px;
+            max-height: 30px;
+        }
+
+        .dd-selected-text,
+        .dd-option-text {
+            line-height: 30px !important;
+            color: #000;
+        }
+
+        .dd-selected {
+            cursor: pointer;
+            padding: 4px !important;
+        }
+
+        #input,
+        #output {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div id="header-sticky" class="header__area header__transparent header__padding-2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-2 col-sm-4 col-6" style="min-width: 100px !important;">
+                        <div class="header__left d-flex">
+                            <div class="logo">
+                                <a href="/"> <img src="/assets/img/logo/logo.png" alt="logo"> </a>
+                            </div>
+                            <div style="min-width: 100px;" class="header__category d-none d-lg-block">
+                                <nav>
+                                    <ul>
+                                        <li>
+                                            <a href="/client/online_compiler/" class="cat-menu d-flex align-items-center">
+                                                <div class="cat-dot-icon d-inline-block">
+                                                    <svg viewBox="0 0 276.2 276.2">
+                                                        <g>
+                                                            <g>
+                                                                <path class="cat-dot"
+                                                                    d="M33.1,2.5C15.3,2.5,0.9,17,0.9,34.8s14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S51,2.5,33.1,2.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M137.7,2.5c-17.8,0-32.3,14.5-32.3,32.3s14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3S155.5,2.5,137.7,2.5    z" />
+                                                                <path class="cat-dot"
+                                                                    d="M243.9,67.1c17.8,0,32.3-14.5,32.3-32.3S261.7,2.5,243.9,2.5S211.6,17,211.6,34.8S226.1,67.1,243.9,67.1z" />
+                                                                <path class="cat-dot"
+                                                                    d="M32.3,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3S0,120.4,0,138.2S14.5,170.5,32.3,170.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M136.8,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3c-17.8,0-32.3,14.5-32.3,32.3    C104.5,156.1,119,170.5,136.8,170.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M243,170.5c17.8,0,32.3-14.5,32.3-32.3c0-17.8-14.5-32.3-32.3-32.3s-32.3,14.5-32.3,32.3    C210.7,156.1,225.2,170.5,243,170.5z" />
+                                                                <path class="cat-dot"
+                                                                    d="M33,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3S50.8,209.1,33,209.1z    " />
+                                                                <path class="cat-dot"
+                                                                    d="M137.6,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S155.4,209.1,137.6,209.1z" />
+                                                                <path class="cat-dot"
+                                                                    d="M243.8,209.1c-17.8,0-32.3,14.5-32.3,32.3c0,17.8,14.5,32.3,32.3,32.3c17.8,0,32.3-14.5,32.3-32.3    S261.6,209.1,243.8,209.1z" />
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                <span>Công Cụ</span>
+                                            </a>
+                                            <ul class="cat-submenu">
+                                                <li><a href="/client/online_compiler/">Trình Biên Dịch</a></li>
+                                                <li id="create-exp" style="display: none;"><a href="/teacher/contest">Tạo
+                                                        Cuộc Thi</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-10 col-sm-8 col-6">
+                        <div class="header__right d-flex justify-content-end align-items-center">
+                            <div class="main-menu main-menu-2">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="/">Trang chủ</a></li>
+                                        <li><a href="/client/problem/problemSolving">Luyện Tập</a></li>
+                                        <li><a href="/client/certify">Chứng chỉ</a></li>
+                                        <li><a href="/client/rank">Xếp Hạng</a></li>
+                                        <li><a href="/client/apply">Tuyển Dụng</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="header__btn header__btn-2 ml-50 d-none d-sm-block" style="display: hidden;">
+                                <div id="header_btn">
+                                    <a href="/sign-up.html" class="e-btn">Đăng ký</a>
+                                    <a href="/sign-in.html" class="e-btn"
+                                        style="background-color: #e8e8e8;color: black">Đăng nhập</a>
+                                </div>
+                                <div class="dropdown" id="header_dropdown" style="display: hidden;">
+                                    <i style="font-size: 20px; position: absolute; line-height: 41px; margin-left: 15px; color: #0e1133"
+                                        class="bx bxs-user"></i>
+                                    <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                                        style="color: #0e1133; font-weight: 500; position: relative; cursor: pointer">
+                                        <span id="header_username"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" style="padding: unset">
+                                        <li style="position: relative"><i class="bx bx-cog bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;" class="dropdown-item"
+                                                href="/user/settings"><span></span>Cài đặt</a></li>
+                                        <li style="position: relative"><i class="bx bx-user bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;" class="dropdown-item"
+                                                href="/user/my-profile">Hồ sơ</a></li>
+                                        <li style="position: relative"><i class="bx bx-lock-alt bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;" class="dropdown-item"
+                                                href="/user/changePassword">Thay đổi mật khẩu</a></li>
+                                        <li style="position: relative"><i class="bx bx-power-off bx-icon"></i><a
+                                                style="font-size: 15px;border-bottom: 1px solid #eee;" class="dropdown-item"
+                                                href="/sign-in.html">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar__menu d-xl-none">
+                                <div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header -->
+    <!-- back to top -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- back to top -->
+     <!-- sidebar area start -->
+    <div class="sidebar__area">
+        <div class="sidebar__wrapper">
+        <div class="sidebar__close">
+            <button class="sidebar__close-btn" id="sidebar__close-btn">
+            <span><i class="fal fa-times"></i></span>
+            <span>close</span>
+            </button>
+        </div>
+        <div class="sidebar__content">
+            <div class="logo mb-40">
+            <a href="index.html">
+                <img src="/assets/img/logo/logo.png" alt="logo">
+            </a>
+            </div>
+            <div class="mobile-menu fix">
+            </div>
+    
+            <div class="sidebar__search p-relative mt-40 ">
+            <form action="#">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="fad fa-search"></i></button>
+            </form>
+            </div>
+            <div class="sidebar__cart mt-30">
+            <a href="#">
+                <div class="header__cart-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle class="st0" cx="9" cy="21" r="1"/>
+                    <circle class="st0" cx="20" cy="21" r="1"/>
+                    <path class="st0" d="M1,1h4l2.7,13.4c0.2,1,1,1.6,2,1.6h9.7c1,0,1.8-0.7,2-1.6L23,6H6"/>
+                </svg>
+                </div>
+                <span class="cart-item">2</span>
+            </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- sidebar area end -->
+    <div class="body-overlay"></div>
+    <!-- sidebar area end -->
+
+    <!-- ChatBox-->
+    <button class="chatbot-toggler">
+        <span class="material-symbols-rounded">mode_comment</span>
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+        <header>
+            <h2 style="font-size: 20px; color: #fff">Trợ Lý Ảo</h2>
+            <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>Xin chào 👋<br>Tôi là trợ lý AI sẽ hỗ trợ cho bạn?</p>
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea placeholder="Nhập câu hỏi..." spellcheck="false" required></textarea>
+            <span id="send-btn" class="material-symbols-rounded">gửi</span>
+        </div>
+    </div>
+    <!-- ChatBox-->
+
+    <div>
+        <!-- page title area start -->
+        <section class="page__title-area pt-120 pb-30">
+            <div class="page__title-shape">
+                <img class="page-title-shape-5 d-none d-sm-block"
+                    src="/assets/img/page-title/page-title-shape-1.png" alt="">
+                <img class="page-title-shape-6" src="/assets/img/page-title/page-title-shape-6.png" alt="">
+                <img class="page-title-shape-7" src="/assets/img/page-title/page-title-shape-4.png" alt="">
+            </div>
+        </section>
+        <div style="margin-bottom: 70px !important;" class="row m-3">
+            <div class="col">
+                <div class="d-flex justify-content-between mb-2 bg-dark rounded p-2">
+                    <div>
+                        <!-- <label class="visually-hidden" for="${'inlineFormSelectPref'}">Preference</label> -->
+                        <select style="cursor: pointer;" class="form-select" id="inlineFormSelectPref">
+                            <option value="1">Java</option>
+                            <option value="2">C#</option>
+                            <option value="3">Python</option>
+                            <option value="4">C++</option>
+                        </select>
+
+                    </div>
+                    <div>
+                        <!-- <label style="color: #fff;" for="theme">Theme</label> -->
+                        <select style="cursor: pointer; width: 120%;" class="form-select" id="theme">
+                            <option selected value="Dark">Dracula</option>
+                            <option value="Light">Light</option>
+                            <option value="Night">Night</option>
+                            <option value="Idea">Idea</option>
+                            <option value="Ocenaic">Ocenaic</option>
+
+                        </select>
+                    </div>
+                    <button style="cursor: pointer;" type="button" id="run" class="btn btn-success">Run
+                        <i style="margin-left: 10px; font-size: 17px;" class="bi bi-play-fill"></i></button>
+                </div>
+                <div style="border-color: #eee; border-style: solid; border-width: 5px;">
+                    <textarea type="text" id="editor" class="form-control" aria-label="First name"></textarea>
+                </div>
+            </div>
+            <div>
+                <label for="Input" class="text-light mt-4 mb-2"></label>
+                <textarea type="text" id="input" placeholder="Nhập input (nếu có)" class="form-control h-75"
+                    aria-label="Last name"></textarea>
+            </div>
+            <section id="excuting" style="display: none; margin-top: 0;" class="events__area pt-115 pb-120 p-relative">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xxl-4 offset-xxl-4">
+                            <div class="section__title-wrapper mb-60 text-center">
+                                <h2 class="section__title" id="loadingText">
+                                    <span style="color: #002795" class="yellow-bg yellow-bg-big"> đang thực
+                                        thi...</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- page title area end -->
+        <button class="chatbot-toggler">
+            <span class="material-symbols-rounded">mode_comment</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="chatbot">
+            <header>
+                <h2 style="font-size: 20px; color: #fff">Code Helper</h2>
+                <span class="close-btn material-symbols-outlined">close</span>
+            </header>
+            <ul class="chatbox">
+                <li class="incoming">
+                    <p style=" white-space: break-spaces; padding: 15px;">Xin chào👋<br>Tôi ở đây để giúp bạn hoàn
+                        thành bài tập này tốt nhất.</p>
+                </li>
+            </ul>
+        </div>
+
+        <table id="resultTable" style="display: none; width: 95vw; border-collapse: collapse; text-align: center; border:1px; margin-left: 30px; margin-bottom: 170px; margin-top: 30px;">
+            <thead style="background-color: darkgray; border: 10px; border-width: 5px; height: 40px;">
+                <tr>
+                    <th>STT</th>
+                    <th>Output của bạn</th>
+                    <th>Output mong đợi</th>
+                    <th>Time (s)</th>
+                    <th>Memory (KB)</th>
+                    <th>Kết quả</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dữ liệu sẽ được thêm vào đây -->
+            </tbody>
+        </table>
+        
+    </div>
+
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/backToTop.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/js/purecounter.js"></script>
+    <script src="/assets/js/jquery.meanmenu.js"></script>
+    <!-- <script src="/assets/js/chatbot.js"></script> -->
+    <script type="module" src="/assets/js/main.js"></script>
+
+    <script src="/assets/codemirror-5.65.15/lib/codemirror.js"></script>
+    <script src="/assets/codemirror-5.65.15/mode/clike/clike.js"></script>
+    <script src="/assets/codemirror-5.65.15/addon/edit/closebrackets.js"></script>
+    <script src="/assets/codemirror-5.65.15/mode/python/python.js"></script>
+    <!-- <script type="text/javascript" src="/assets/compiler/jquery-172.js"></script> -->
+    <script type="text/javascript" src="/assets/compiler/ddslick.js"></script>
+    <script type="module" src="/assets/compiler/compiler.js"></script>
+            
+    <script inline="javascript">
+        const myApiKey = '6984bdd544msh3d3fdce8861538fp11c2f0jsnd28103cc1b98';
+        const chatbotToggler = document.querySelector(".chatbot-toggler");
+        const closeBtn = document.querySelector(".close-btn");
+        closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+        chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+        function addResponseGPT(result) {
+            console.log(result.answer);
+            const loading_gpt = document.querySelector(".loading_gpt");
+            loading_gpt.remove();
+
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("incoming");
+            let chatContent = `<p style="white-space: break-spaces;padding: 15px;">` + result.answer + `</p>`;
+            chatLi.innerHTML += chatContent;
+            const chatbox = document.querySelector(".chatbox");
+            chatbox.appendChild(chatLi);
+        }
+
+        async function explainCode(selectedCode) {
+            const prompt_text = "Hãy giải thích về cách hoạt động của đoạn mã nguồn sau đây:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function addComments(selectedCode) {
+            const prompt_text = "Hãy thêm vào đoạn mã sau đây với các comment để giải thích từng phần:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function findBugs(selectedCode) {
+            const prompt_text = "Hãy tìm những lỗi có thể xuất hiện trong đoạn code dưới đây:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function optimize(selectedCode) {
+            const prompt_text = "Hãy đưa ra những gợi ý để có thể cải thiện hiệu suất của đoạn mã nguồn sau đây:"
+            const source = selectedCode;
+            const prompt_send = prompt_text + source;
+            const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-RapidAPI-Key': myApiKey,
+                    'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+                },
+                body: JSON.stringify({
+                    question: prompt_send
+                })
+            };
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                console.log(result);
+                if (result) {
+                    addResponseGPT(result);
+                }
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+
+        // Tạo một menu ngữ cảnh tùy chỉnh với một tùy chọn "explain this code"
+        var contextMenu = "<div class='dropdown-menu dropdown-menu-sm' id='context-menu'>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='findBugs'>Tìm lỗi</a>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='explain'>Giải thích code</a>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='addComments'>Thêm chú thích</a>" +
+            "<a class='dropdown-item' style='cursor: pointer' id='optimize'>Tối ưu code</a>" +
+            "</div>";
+        $("body").append(contextMenu);
+
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "text/x-c++src",
+            theme: "dracula",
+            lineNumbers: true,
+            autoCloseBrackets: true,
+        });
+        $(".CodeMirror").on("contextmenu", function (e) {
+            // Lấy vị trí của con trỏ chuột
+            var top = e.pageY - 10;
+            var left = e.pageX - 90;
+            // Hiển thị menu ngữ cảnh tại vị trí đó
+            $("#context-menu").css({
+                display: "block",
+                top: top,
+                left: left
+            }).addClass("show");
+            // Ngăn chặn menu ngữ cảnh mặc định của trình duyệt
+            return false;
+        }).on("click", function () {
+            // Ẩn menu ngữ cảnh khi người dùng nhấp chuột trái
+            $("#context-menu").removeClass("show").hide();
+        });
+        function addLoadingGPT() {
+            chatbotToggler.click();
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("incoming");
+            chatLi.classList.add("loading_gpt");
+            let chatContent = '<p style="white-space: break-spaces;padding: 15px;">Đang phân tích code của bạn...</p> ';
+            chatLi.innerHTML += chatContent;
+            const chatbox = document.querySelector(".chatbox");
+            chatbox.appendChild(chatLi);
+        }
+        // Bắt sự kiện click trên tùy chọn "explain this code"
+        $("#explain").on("click", function () {
+            addLoadingGPT();
+
+            // Lấy văn bản được chọn trên trình soạn thảo
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+            explainCode(selectedText);
+        });
+        $("#findBugs").on("click", function () {
+            addLoadingGPT();
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+
+            findBugs(selectedText);
+        });
+        $("#addComments").on("click", function () {
+            addLoadingGPT();
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+            addComments(selectedText);
+        });
+        $("#optimize").on("click", function () {
+            addLoadingGPT();
+            var selectedText = editor.getSelection();
+            if (selectedText == "") {
+                selectedText = editor.getValue();
+            }
+            optimize(selectedText);
+        });
+        // editor.setSize("initial", "");
+        // var option;
+        // var langague_name;
+       
+    </script>
+</body>
+</html>

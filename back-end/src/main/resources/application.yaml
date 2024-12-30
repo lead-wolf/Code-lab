@@ -1,0 +1,65 @@
+server:
+    port: 11000
+#    ssl:
+#      key-store: classpath:myssl.p12
+#      key-store-password: An04102004
+#      key-store-type: PKCS12
+#      key-alias: myssl
+#      enabled: true
+    servlet:
+      context-path: /api/v1
+      multipart:
+        max-file-size: 10MB
+        max-request-size: 10MB
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_CONNECTION:jdbc:mysql://103.200.23.189:3306/thieubin_code_lab}
+    username: ${DB_USERNAME:thieubin_dacs}
+    password: ${DB_PASSWORD:dacs@123#}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+#      dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    format_sql: false
+    use_sql_comments: true
+    generate_statistics: true
+
+    http:
+      encoding:
+        enabled: true
+        charset: UTF-8
+        force: true
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG  # Để hiển thị câu lệnh SQL
+          type:
+            descriptor:
+              sql: TRACE  # Để hiển thị chi tiết các giá trị tham số SQL
+      # Thêm log cho các lớp khác nếu cần thiết
+      root: INFO  # Cấu hình log mức độ root
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:gmathaythe@gmail.com}
+    password: ${MAIL_PASSWORD:Anthieu@04102k4}
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true
+
+jwt:
+  signerKey: ${SIGNER_KEY:oHYAsPKMv5bBX1w9aR/Ti+vkv7fU8uXerpz6OULK8am1YVL/d9/1KbDK3KNwniDn}
+  valid-duration: 60 # in minute
+  refreshable-duration: 90 # in minute
+  origins: ${JWT_ORIGINS}

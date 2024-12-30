@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Đăng Nhập</title>
+    <!-- Place favicon.ico in the root directory -->
+   <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+   <!-- CSS here -->
+   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/admin/assets/vendor/toastr-master/toastr.css" >
+   <link rel="stylesheet" href="/assets/css/default.css">
+   <link rel="stylesheet" href="/assets/css/style.css">
+   <link rel="stylesheet" href="/assets/css/chatbot.css">
+   <link rel="stylesheet" href="/assets/css/fontAwesome5Pro.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" >
+
+   <style>
+      .alert {
+        display: none;
+      }
+    </style>
+
+</head>
+<body>
+   
+   <!-- sign up area start -->
+   <section class="signup__area po-rel-z1 pt-100 pb-145">
+      <div class="sign__shape">
+         <img class="man-1" src="/assets/img/icon/sign/man-1.png" alt="">
+         <img class="man-2" src="/assets/img/icon/sign/man-2.png" alt="">
+         <img class="circle" src="/assets/img/icon/sign/circle.png" alt="">
+         <img class="zigzag" src="/assets/img/icon/sign/zigzag.png" alt="">
+         <img class="dot" src="/assets/img/icon/sign/dot.png" alt="">
+         <img class="bg" src="/assets/img/icon/sign/sign-up.png" alt="">
+      </div>
+      <div class="container">
+         <div class="row">
+            <!-- <img src="" alt=""> -->
+         </div>
+         <div class="row">
+            <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
+               <div class="section__title-wrapper text-center mb-55">
+                  <h2 class="section__title">Đăng nhập vào <br>  Coder'sLab.</h2>
+                  <p>Coder'slab là nền tảng đánh giá và phát triễn kỹ năng lập trình</p>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+               <div class="sign__wrapper white-bg">
+                  <div class="sign__header mb-35">
+                     <div class="sign__in text-center">
+                        <a href="#" class="sign__social text-start mb-15"><i class="fab fa-facebook-f"></i>Sign in with Facebook</a>
+                        <p> <span>........</span> Or, <a href="sign-in.html">sign in</a> with your email<span> ........</span> </p>
+                     </div>
+                  </div>
+                  <div class="sign__form">
+                     <form id="loginForm">
+                        <div  class="alert alert-error"
+                              id="alert-error"
+                              style="justify-content: center; color: red;">
+                              Sai tài khoản hoặc mật khẩu!
+                        </div>
+                        <div  class="alert alert-success"
+                              id="alert-success"
+                              style="justify-content: center; color: #0f5132;">
+                           Đăng xuất thành công.
+                        </div>
+                        <!-- <div id="error-message" class="text-danger" style="display:none;"></div> -->
+                        <div class="sign__input-wrapper mb-25">
+                           <h5>Email</h5>
+                           <div class="sign__input">
+                              <input type="text" id="email" required placeholder="Nhập địa chỉ email">
+                              <i class="fal fa-envelope"></i>
+                           </div>
+                        </div>
+                        <div class="sign__input-wrapper mb-10">
+                           <h5>Mật khẩu</h5>
+                           <div class="sign__input">
+                              <input type="password" id="password" required minlength="6" maxlength="20" placeholder="Password">
+                              <i class="fal fa-lock"></i>
+                           </div>
+                        </div>
+                        <div class="sign__action d-sm-flex justify-content-between mb-30">
+                           <div class="sign__agree d-flex align-items-center">
+                              <input class="m-check-input" type="checkbox" name="remember-me" id="m-agree">
+                              <label class="m-check-label" for="m-agree">Lưu tài khoản
+                              </label>
+                           </div>
+                           <div class="sign__forgot">
+                              <a href="#">Quên mật khẩu?</a>
+                           </div>
+                        </div>
+                        <button class="e-btn  w-100"> <span></span> Đăng nhập</button>
+                        <div class="sign__new text-center mt-20">
+                           <p>New to Coder'sLab? <a href="/sign-up.html">Đăng ký</a></p>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+       <!-- ChatBox-->
+   <button class="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+  </button>
+  <div class="chatbot">
+      <header>
+          <h2 style="font-size: 20px; color: #fff">Trợ Lý Ảo</h2>
+          <span class="close-btn material-symbols-outlined">close</span>
+      </header>
+      <ul class="chatbox">
+          <li class="chat incoming">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <p>Xin chào 👋<br>Tôi là trợ lý AI sẽ hỗ trợ cho bạn?</p>
+          </li>
+      </ul>
+      <div class="chat-input">
+          <textarea placeholder="Nhập câu hỏi..." spellcheck="false" required></textarea>
+          <span id="send-btn" class="material-symbols-rounded">gửi</span>
+      </div>
+   </div>
+   <!-- ChatBox-->
+   </section>
+   <!-- sign up area end -->
+
+   <!-- JS -->
+   <script src="/admin/assets/vendor/jquery/jquery.min.js"></script>
+   <!--init toastr-->
+   <script src="/admin/assets/vendor/js-init/init-toastr.js"></script>
+   <!--toastr-->
+   <script src="/admin/assets/vendor/toastr-master/toastr.js"></script>
+   <script src=".//assets/js/chatbot.js"></script>
+   <script type="module" src="./assets/js/login.js"></script>
+   <!-- JS -->
+
+</body>
+</html>
